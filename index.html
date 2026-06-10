@@ -36,6 +36,22 @@ table.rank{width:100%;border-collapse:collapse;font-size:13px;
 .pos{color:var(--pos);font-weight:600;} .neg{color:var(--neg);font-weight:600;}
 .flat{color:var(--flat);} .na{color:#4a5160;}
 tr.rot-row{background:rgba(202,160,36,.10);}
+.rank .vd{font-size:12.5px;white-space:nowrap;}
+.rank .vd b{font-weight:700;}
+.rank .flags{font-size:10.5px;color:#caa024;}
+.rank .act{color:var(--mut);font-size:11.5px;white-space:nowrap;}
+tr.v-lead{background:rgba(39,196,152,.12);}
+tr.v-pull{background:rgba(202,160,36,.08);}
+tr.v-break{background:rgba(224,160,32,.07);}
+tr.v-recover{background:rgba(80,140,255,.08);}
+.gate{background:rgba(255,93,108,.15);border:1px solid #5a2730;color:#ff8a96;
+  border-radius:10px;padding:11px 14px;margin:10px 0;font-weight:700;font-size:14px;}
+.concl{background:#11151c;border:1px solid var(--line);border-left:4px solid #4a7;
+  border-radius:10px;padding:13px 15px;margin:10px 0 18px;}
+.concl .ct{font-size:13px;color:var(--mut);font-weight:700;margin-bottom:7px;}
+.concl .cl{font-size:14px;line-height:1.7;font-weight:600;}
+.concl .legend2{font-size:11px;color:var(--mut);margin-top:9px;
+  border-top:1px solid var(--line);padding-top:8px;line-height:1.6;}
 .badge.rot{background:rgba(202,160,36,.18);color:var(--rot);padding:2px 7px;
   border-radius:6px;font-size:11px;font-weight:700;}
 .note{color:var(--mut);font-size:12px;margin:6px 0 16px;}
@@ -63,6 +79,9 @@ tr.rot-row{background:rgba(202,160,36,.10);}
   <span class="ok">수집 실패 없음</span>
 </div>
 
+
+<div class="concl"><div class="ct">📋 오늘의 결론</div><div class="cl">🟢 주도 지속: 은행금융</div><div class="cl">🟡 눌림 대기: AI메모리, AI반도체, 사이버보안</div><div class="legend2">판정: 🟢주도지속 · 🟡건강한눌림 · 🟠꺾임의심 · 🔵회복진행 · ⚪반짝반등 · ⚫소외 &nbsp;|&nbsp; ⚠️쏠림(한두종목착시) · 🔄(거래대금 유입) · ↗(순위 급부상)</div></div>
+
 <div class="tabs">
   <div class="tab on" data-v="v1">🔥 테마 랭킹</div>
   <div class="tab" data-v="v2">🇺🇸 섹터(미국)</div>
@@ -71,374 +90,413 @@ tr.rot-row{background:rgba(202,160,36,.10);}
 </div>
 
 <div id="v1" class="view on">
-  <div class="note">테마 RS = 구성종목 RS의 <b>중앙값</b> · 강세폭 = 52주 신고가 −15% 이내 종목 비율(동네 전체가 가나 체크) · 거래대금 = 5일/60일 · 🔄 = RS63 하위50% & RS5 상위20%</div>
+  <div class="note">테마 RS = 구성종목 RS의 <b>중앙값</b> · 강세폭 = 52주 신고가 −15% 이내 종목 비율(동네 전체가 가나 체크) · 거래대금 = 5일/60일 평균 비율 · 판정·행동은 위 '오늘의 결론' 범례 참고</div>
   <table class="rank"><thead><tr>
-      <th>#</th><th class="l">이름</th>
+      <th>#</th><th class="l">이름</th><th class="l">판정</th>
       <th>RS5</th><th>RS21</th><th>RS63</th>
       <th title="구성종목 중 52주 신고가 −15% 이내 비율">강세폭</th><th>거래대금</th>
-      <th>전일</th><th>5일전</th><th class="l">태그</th></tr></thead><tbody><tr class="">
+      <th>전일</th><th>5일전</th><th class="l">행동</th></tr></thead><tbody><tr class="v-pull">
           <td class="rk">1</td>
           <td class="l name clk" onclick="gotoRRG('theme','AI메모리')" title="누르면 로테이션맵에서 보기">AI메모리 <span class="cnt">3</span> </td>
+          <td class="l vd">🟡 <b>건강한눌림</b></td>
           <td><span class="neg">-3.7</span></td>
           <td><span class="pos">+14.8</span></td>
           <td><span class="pos">+97.0</span></td>
           <td>67%</td><td><span class="pos">×1.55</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr><tr class="">
+          <td class="l act">진입 대기 — RS5 양전환 시 1순위 승격</td></tr><tr class="v-pull">
           <td class="rk">2</td>
           <td class="l name clk" onclick="gotoRRG('theme','AI반도체')" title="누르면 로테이션맵에서 보기">AI반도체 <span class="cnt">6</span> <span class="etf">SMH</span></td>
+          <td class="l vd">🟡 <b>건강한눌림</b></td>
           <td><span class="neg">-4.4</span></td>
           <td><span class="pos">+0.5</span></td>
           <td><span class="pos">+68.0</span></td>
           <td>50%</td><td><span class="pos">×1.24</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr><tr class="">
+          <td class="l act">진입 대기 — RS5 양전환 시 1순위 승격</td></tr><tr class="v-pull">
           <td class="rk">3</td>
           <td class="l name clk" onclick="gotoRRG('theme','사이버보안')" title="누르면 로테이션맵에서 보기">사이버보안 <span class="cnt">6</span> <span class="etf">CIBR</span></td>
+          <td class="l vd">🟡 <b>건강한눌림</b></td>
           <td><span class="neg">-9.6</span></td>
           <td><span class="pos">+20.9</span></td>
           <td><span class="pos">+21.7</span></td>
           <td>50%</td><td><span class="pos">×1.29</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr><tr class="">
+          <td class="l act">진입 대기 — RS5 양전환 시 1순위 승격</td></tr><tr class="v-lead">
           <td class="rk">4</td>
           <td class="l name clk" onclick="gotoRRG('theme','은행금융')" title="누르면 로테이션맵에서 보기">은행금융 <span class="cnt">5</span> <span class="etf">XLF</span></td>
+          <td class="l vd">🟢 <b>주도지속</b></td>
           <td><span class="pos">+5.6</span></td>
           <td><span class="pos">+7.4</span></td>
           <td><span class="pos">+15.1</span></td>
           <td>100%</td><td><span class="flat">×1.13</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr><tr class="">
+          <td class="l act">1순위 — 이 테마에서 종목 탐색</td></tr><tr class="v-break">
           <td class="rk">5</td>
           <td class="l name clk" onclick="gotoRRG('theme','우주')" title="누르면 로테이션맵에서 보기">우주 <span class="cnt">4</span> <span class="etf">UFO</span></td>
+          <td class="l vd">🟠 <b>꺾임의심</b> <span class="flags">⚠️쏠림</span></td>
           <td><span class="neg">-24.8</span></td>
           <td><span class="neg">-1.2</span></td>
           <td><span class="pos">+29.9</span></td>
           <td>0%</td><td><span class="flat">×1.01</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr><tr class="">
+          <td class="l act">보유분 경계 — 신규 금지</td></tr><tr class="v-break">
           <td class="rk">6</td>
           <td class="l name clk" onclick="gotoRRG('theme','양자컴퓨팅')" title="누르면 로테이션맵에서 보기">양자컴퓨팅 <span class="cnt">4</span> <span class="etf">QTUM</span></td>
+          <td class="l vd">🟠 <b>꺾임의심</b> <span class="flags">⚠️쏠림</span></td>
           <td><span class="neg">-18.9</span></td>
           <td><span class="pos">+4.2</span></td>
           <td><span class="pos">+16.1</span></td>
           <td>0%</td><td><span class="pos">×1.33</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr><tr class="">
+          <td class="l act">보유분 경계 — 신규 금지</td></tr><tr class="v-break">
           <td class="rk">7</td>
           <td class="l name clk" onclick="gotoRRG('theme','AI전력인프라')" title="누르면 로테이션맵에서 보기">AI전력인프라 <span class="cnt">5</span> <span class="etf">GRID</span></td>
+          <td class="l vd">🟠 <b>꺾임의심</b></td>
           <td><span class="neg">-2.6</span></td>
           <td><span class="neg">-6.7</span></td>
           <td><span class="pos">+2.4</span></td>
           <td>40%</td><td><span class="flat">×0.97</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr><tr class="">
+          <td class="l act">보유분 경계 — 신규 금지</td></tr><tr class="v-blip">
           <td class="rk">8</td>
           <td class="l name clk" onclick="gotoRRG('theme','데이터센터REIT')" title="누르면 로테이션맵에서 보기">데이터센터REIT <span class="cnt">2</span> <span class="etf">SRVR</span></td>
+          <td class="l vd">⚪ <b>반짝반등</b></td>
           <td><span class="pos">+1.8</span></td>
           <td><span class="neg">-2.9</span></td>
           <td><span class="neg">-2.0</span></td>
           <td>100%</td><td><span class="flat">×1.05</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr><tr class="">
+          <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-break">
           <td class="rk">9</td>
           <td class="l name clk" onclick="gotoRRG('theme','휴머노이드로봇')" title="누르면 로테이션맵에서 보기">휴머노이드로봇 <span class="cnt">6</span> <span class="etf">BOTZ</span></td>
+          <td class="l vd">🟠 <b>꺾임의심</b></td>
           <td><span class="neg">-3.2</span></td>
           <td><span class="neg">-6.2</span></td>
           <td><span class="pos">+1.4</span></td>
           <td>33%</td><td><span class="flat">×1.07</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr><tr class="">
+          <td class="l act">보유분 경계 — 신규 금지</td></tr><tr class="v-laggard">
           <td class="rk">10</td>
           <td class="l name clk" onclick="gotoRRG('theme','로보택시')" title="누르면 로테이션맵에서 보기">로보택시 <span class="cnt">4</span> </td>
+          <td class="l vd">⚫ <b>소외</b></td>
           <td><span class="neg">-1.1</span></td>
           <td><span class="neg">-7.0</span></td>
           <td><span class="neg">-0.4</span></td>
           <td>25%</td><td><span class="flat">×1.00</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr><tr class="rot-row">
+          <td class="l act">무시</td></tr><tr class="v-blip">
           <td class="rk">11</td>
           <td class="l name clk" onclick="gotoRRG('theme','GLP1비만약')" title="누르면 로테이션맵에서 보기">GLP1비만약 <span class="cnt">4</span> <span class="etf">XBI</span></td>
+          <td class="l vd">⚪ <b>반짝반등</b></td>
           <td><span class="pos">+6.6</span></td>
           <td><span class="neg">-0.5</span></td>
           <td><span class="neg">-10.5</span></td>
           <td>25%</td><td><span class="flat">×0.89</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"><span class="badge rot">🔄 로테이션</span></td></tr><tr class="">
+          <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-laggard">
           <td class="rk">12</td>
           <td class="l name clk" onclick="gotoRRG('theme','원전')" title="누르면 로테이션맵에서 보기">원전 <span class="cnt">6</span> <span class="etf">URA</span></td>
+          <td class="l vd">⚫ <b>소외</b> <span class="flags">⚠️쏠림</span></td>
           <td><span class="neg">-4.6</span></td>
           <td><span class="neg">-9.7</span></td>
           <td><span class="neg">-18.6</span></td>
           <td>17%</td><td><span class="flat">×1.02</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr><tr class="">
+          <td class="l act">무시</td></tr><tr class="v-blip">
           <td class="rk">13</td>
           <td class="l name clk" onclick="gotoRRG('theme','방산')" title="누르면 로테이션맵에서 보기">방산 <span class="cnt">7</span> <span class="etf">ITA</span></td>
+          <td class="l vd">⚪ <b>반짝반등</b> <span class="flags">⚠️쏠림</span></td>
           <td><span class="pos">+0.4</span></td>
           <td><span class="pos">+3.6</span></td>
           <td><span class="neg">-30.8</span></td>
           <td>14%</td><td><span class="flat">×0.87</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr><tr class="rot-row">
+          <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-blip">
           <td class="rk">14</td>
           <td class="l name clk" onclick="gotoRRG('theme','한국주도주')" title="누르면 로테이션맵에서 보기">한국주도주 <span class="cnt">5</span> </td>
+          <td class="l vd">⚪ <b>반짝반등</b></td>
           <td><span class="pos">+3.4</span></td>
           <td><span class="neg">-9.3</span></td>
           <td><span class="neg">-36.8</span></td>
           <td>40%</td><td><span class="flat">×1.01</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"><span class="badge rot">🔄 로테이션</span></td></tr><tr class="">
+          <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-laggard">
           <td class="rk">15</td>
           <td class="l name clk" onclick="gotoRRG('theme','금은광산')" title="누르면 로테이션맵에서 보기">금은광산 <span class="cnt">6</span> <span class="etf">GDX</span></td>
+          <td class="l vd">⚫ <b>소외</b> <span class="flags">⚠️쏠림</span></td>
           <td><span class="neg">-7.4</span></td>
           <td><span class="neg">-16.0</span></td>
           <td><span class="neg">-31.0</span></td>
           <td>0%</td><td><span class="flat">×0.88</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr><tr class="">
+          <td class="l act">무시</td></tr><tr class="v-laggard">
           <td class="rk">16</td>
           <td class="l name clk" onclick="gotoRRG('theme','리튬2차전지')" title="누르면 로테이션맵에서 보기">리튬2차전지 <span class="cnt">4</span> <span class="etf">LIT</span></td>
+          <td class="l vd">⚫ <b>소외</b> <span class="flags">⚠️쏠림</span></td>
           <td><span class="neg">-4.0</span></td>
           <td><span class="neg">-25.3</span></td>
           <td><span class="neg">-29.0</span></td>
           <td>0%</td><td><span class="flat">×0.91</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr><tr class="">
+          <td class="l act">무시</td></tr><tr class="v-laggard">
           <td class="rk">17</td>
           <td class="l name clk" onclick="gotoRRG('theme','스테이블코인크립토')" title="누르면 로테이션맵에서 보기">스테이블코인크립토 <span class="cnt">4</span> <span class="etf">IBIT</span></td>
+          <td class="l vd">⚫ <b>소외</b> <span class="flags">⚠️쏠림</span></td>
           <td><span class="neg">-9.4</span></td>
           <td><span class="neg">-25.6</span></td>
           <td><span class="neg">-27.3</span></td>
           <td>0%</td><td><span class="flat">×0.94</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr><tr class="">
+          <td class="l act">무시</td></tr><tr class="v-laggard">
           <td class="rk">18</td>
           <td class="l name clk" onclick="gotoRRG('theme','희토류전략광물')" title="누르면 로테이션맵에서 보기">희토류전략광물 <span class="cnt">3</span> <span class="etf">REMX</span></td>
+          <td class="l vd">⚫ <b>소외</b> <span class="flags">⚠️쏠림</span></td>
           <td><span class="neg">-21.9</span></td>
           <td><span class="neg">-19.4</span></td>
           <td><span class="neg">-30.6</span></td>
           <td>0%</td><td><span class="flat">×1.02</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr></tbody></table>
+          <td class="l act">무시</td></tr></tbody></table>
 </div>
 <div id="v2" class="view"><table class="rank"><thead><tr>
-      <th>#</th><th class="l">이름</th>
+      <th>#</th><th class="l">이름</th><th class="l">판정</th>
       <th>RS5</th><th>RS21</th><th>RS63</th>
       <th>거래대금</th>
-      <th>전일</th><th>5일전</th><th class="l">태그</th></tr></thead><tbody><tr class="">
+      <th>전일</th><th>5일전</th><th class="l">행동</th></tr></thead><tbody><tr class="v-pull">
           <td class="rk">1</td>
           <td class="l name clk" onclick="gotoRRG('us','기술(XLK)')" title="누르면 로테이션맵에서 보기">기술(XLK) <span class="cnt">1</span> </td>
+          <td class="l vd">🟡 <b>건강한눌림</b></td>
           <td><span class="neg">-5.8</span></td>
           <td><span class="pos">+3.1</span></td>
           <td><span class="pos">+20.4</span></td>
           <td><span class="pos">×1.65</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr><tr class="rot-row">
+          <td class="l act">진입 대기 — RS5 양전환 시 1순위 승격</td></tr><tr class="v-recover">
           <td class="rk">2</td>
           <td class="l name clk" onclick="gotoRRG('us','헬스케어(XLV)')" title="누르면 로테이션맵에서 보기">헬스케어(XLV) <span class="cnt">1</span> </td>
+          <td class="l vd">🔵 <b>회복진행</b></td>
           <td><span class="pos">+8.5</span></td>
           <td><span class="pos">+7.8</span></td>
           <td><span class="neg">-7.8</span></td>
           <td><span class="pos">×1.28</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"><span class="badge rot">🔄 로테이션</span></td></tr><tr class="">
+          <td class="l act">관찰 리스트 — 3일 연속 유지 시 후보</td></tr><tr class="v-blip">
           <td class="rk">3</td>
           <td class="l name clk" onclick="gotoRRG('us','부동산(XLRE)')" title="누르면 로테이션맵에서 보기">부동산(XLRE) <span class="cnt">1</span> </td>
+          <td class="l vd">⚪ <b>반짝반등</b></td>
           <td><span class="pos">+6.4</span></td>
           <td><span class="pos">+1.3</span></td>
           <td><span class="neg">-3.7</span></td>
           <td><span class="flat">×0.88</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr><tr class="">
+          <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-recover">
           <td class="rk">4</td>
           <td class="l name clk" onclick="gotoRRG('us','금융(XLF)')" title="누르면 로테이션맵에서 보기">금융(XLF) <span class="cnt">1</span> </td>
+          <td class="l vd">🔵 <b>회복진행</b></td>
           <td><span class="pos">+4.9</span></td>
           <td><span class="pos">+2.5</span></td>
           <td><span class="neg">-3.8</span></td>
           <td><span class="flat">×1.15</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr><tr class="">
+          <td class="l act">관찰 리스트 — 3일 연속 유지 시 후보</td></tr><tr class="v-blip">
           <td class="rk">5</td>
           <td class="l name clk" onclick="gotoRRG('us','에너지(XLE)')" title="누르면 로테이션맵에서 보기">에너지(XLE) <span class="cnt">1</span> </td>
+          <td class="l vd">⚪ <b>반짝반등</b></td>
           <td><span class="pos">+2.0</span></td>
           <td><span class="pos">+3.1</span></td>
           <td><span class="neg">-5.2</span></td>
           <td><span class="neg">×0.75</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr><tr class="">
+          <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-blip">
           <td class="rk">6</td>
           <td class="l name clk" onclick="gotoRRG('us','산업재(XLI)')" title="누르면 로테이션맵에서 보기">산업재(XLI) <span class="cnt">1</span> </td>
+          <td class="l vd">⚪ <b>반짝반등</b></td>
           <td><span class="pos">+3.8</span></td>
           <td><span class="pos">+1.5</span></td>
           <td><span class="neg">-5.6</span></td>
           <td><span class="neg">×0.79</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr><tr class="">
+          <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-blip">
           <td class="rk">7</td>
           <td class="l name clk" onclick="gotoRRG('us','소재(XLB)')" title="누르면 로테이션맵에서 보기">소재(XLB) <span class="cnt">1</span> </td>
+          <td class="l vd">⚪ <b>반짝반등</b></td>
           <td><span class="pos">+1.5</span></td>
           <td><span class="neg">-1.5</span></td>
           <td><span class="neg">-6.9</span></td>
           <td><span class="flat">×0.96</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr><tr class="">
+          <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-blip">
           <td class="rk">8</td>
           <td class="l name clk" onclick="gotoRRG('us','필수소비재(XLP)')" title="누르면 로테이션맵에서 보기">필수소비재(XLP) <span class="cnt">1</span> </td>
+          <td class="l vd">⚪ <b>반짝반등</b></td>
           <td><span class="pos">+5.7</span></td>
           <td><span class="neg">-0.0</span></td>
           <td><span class="neg">-10.5</span></td>
           <td><span class="flat">×0.98</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr><tr class="">
+          <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-blip">
           <td class="rk">9</td>
           <td class="l name clk" onclick="gotoRRG('us','임의소비재(XLY)')" title="누르면 로테이션맵에서 보기">임의소비재(XLY) <span class="cnt">1</span> </td>
+          <td class="l vd">⚪ <b>반짝반등</b></td>
           <td><span class="pos">+1.5</span></td>
           <td><span class="neg">-3.5</span></td>
           <td><span class="neg">-7.7</span></td>
           <td><span class="neg">×0.78</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr><tr class="">
+          <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-blip">
           <td class="rk">10</td>
           <td class="l name clk" onclick="gotoRRG('us','유틸리티(XLU)')" title="누르면 로테이션맵에서 보기">유틸리티(XLU) <span class="cnt">1</span> </td>
+          <td class="l vd">⚪ <b>반짝반등</b></td>
           <td><span class="pos">+3.1</span></td>
           <td><span class="neg">-1.6</span></td>
           <td><span class="neg">-14.0</span></td>
           <td><span class="flat">×0.90</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr><tr class="">
+          <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-recover">
           <td class="rk">11</td>
           <td class="l name clk" onclick="gotoRRG('us','커뮤니케이션(XLC)')" title="누르면 로테이션맵에서 보기">커뮤니케이션(XLC) <span class="cnt">1</span> </td>
+          <td class="l vd">🔵 <b>회복진행</b> <span class="flags">🔄</span></td>
           <td><span class="pos">+1.1</span></td>
           <td><span class="neg">-4.6</span></td>
           <td><span class="neg">-13.9</span></td>
           <td><span class="pos">×1.25</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr></tbody></table></div>
+          <td class="l act">관찰 리스트 — 3일 연속 유지 시 후보</td></tr></tbody></table></div>
 <div id="v3" class="view"><table class="rank"><thead><tr>
-      <th>#</th><th class="l">이름</th>
+      <th>#</th><th class="l">이름</th><th class="l">판정</th>
       <th>RS5</th><th>RS21</th><th>RS63</th>
       <th>거래대금</th>
-      <th>전일</th><th>5일전</th><th class="l">태그</th></tr></thead><tbody><tr class="">
+      <th>전일</th><th>5일전</th><th class="l">행동</th></tr></thead><tbody><tr class="v-lead">
           <td class="rk">1</td>
           <td class="l name clk" onclick="gotoRRG('kr','반도체(KODEX)')" title="누르면 로테이션맵에서 보기">반도체(KODEX) <span class="cnt">1</span> </td>
+          <td class="l vd">🟢 <b>주도지속</b></td>
           <td><span class="pos">+4.8</span></td>
           <td><span class="neg">-1.3</span></td>
           <td><span class="pos">+14.6</span></td>
           <td><span class="pos">×1.23</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr><tr class="">
+          <td class="l act">1순위 — 이 테마에서 종목 탐색</td></tr><tr class="v-recover">
           <td class="rk">2</td>
           <td class="l name clk" onclick="gotoRRG('kr','보험(KODEX)')" title="누르면 로테이션맵에서 보기">보험(KODEX) <span class="cnt">1</span> </td>
+          <td class="l vd">🔵 <b>회복진행</b></td>
           <td><span class="pos">+4.0</span></td>
           <td><span class="pos">+8.0</span></td>
           <td><span class="neg">-18.7</span></td>
           <td><span class="flat">×1.01</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr><tr class="">
+          <td class="l act">관찰 리스트 — 3일 연속 유지 시 후보</td></tr><tr class="v-laggard">
           <td class="rk">3</td>
           <td class="l name clk" onclick="gotoRRG('kr','자동차(KODEX)')" title="누르면 로테이션맵에서 보기">자동차(KODEX) <span class="cnt">1</span> </td>
+          <td class="l vd">⚫ <b>소외</b></td>
           <td><span class="neg">-1.6</span></td>
           <td><span class="neg">-8.0</span></td>
           <td><span class="neg">-31.9</span></td>
           <td><span class="neg">×0.66</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr><tr class="">
+          <td class="l act">무시</td></tr><tr class="v-recover">
           <td class="rk">4</td>
           <td class="l name clk" onclick="gotoRRG('kr','은행(KODEX)')" title="누르면 로테이션맵에서 보기">은행(KODEX) <span class="cnt">1</span> </td>
+          <td class="l vd">🔵 <b>회복진행</b> <span class="flags">🔄</span></td>
           <td><span class="pos">+13.9</span></td>
           <td><span class="neg">-11.1</span></td>
           <td><span class="neg">-42.7</span></td>
           <td><span class="pos">×3.15</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr><tr class="">
+          <td class="l act">관찰 리스트 — 3일 연속 유지 시 후보</td></tr><tr class="v-blip">
           <td class="rk">5</td>
           <td class="l name clk" onclick="gotoRRG('kr','건설(KODEX)')" title="누르면 로테이션맵에서 보기">건설(KODEX) <span class="cnt">1</span> </td>
+          <td class="l vd">⚪ <b>반짝반등</b></td>
           <td><span class="pos">+8.2</span></td>
           <td><span class="neg">-32.0</span></td>
           <td><span class="neg">-30.7</span></td>
           <td><span class="neg">×0.35</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr><tr class="">
+          <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-blip">
           <td class="rk">6</td>
           <td class="l name clk" onclick="gotoRRG('kr','기계장비(KODEX)')" title="누르면 로테이션맵에서 보기">기계장비(KODEX) <span class="cnt">1</span> </td>
+          <td class="l vd">⚪ <b>반짝반등</b></td>
           <td><span class="pos">+4.8</span></td>
           <td><span class="neg">-30.3</span></td>
           <td><span class="neg">-45.2</span></td>
           <td><span class="neg">×0.37</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr><tr class="">
+          <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-blip">
           <td class="rk">7</td>
           <td class="l name clk" onclick="gotoRRG('kr','운송(KODEX)')" title="누르면 로테이션맵에서 보기">운송(KODEX) <span class="cnt">1</span> </td>
+          <td class="l vd">⚪ <b>반짝반등</b></td>
           <td><span class="pos">+7.4</span></td>
           <td><span class="neg">-21.4</span></td>
           <td><span class="neg">-54.1</span></td>
           <td><span class="neg">×0.35</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr><tr class="">
+          <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-blip">
           <td class="rk">8</td>
           <td class="l name clk" onclick="gotoRRG('kr','에너지화학(KODEX)')" title="누르면 로테이션맵에서 보기">에너지화학(KODEX) <span class="cnt">1</span> </td>
+          <td class="l vd">⚪ <b>반짝반등</b></td>
           <td><span class="pos">+4.3</span></td>
           <td><span class="neg">-28.0</span></td>
           <td><span class="neg">-51.9</span></td>
           <td><span class="neg">×0.46</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr><tr class="">
+          <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-blip">
           <td class="rk">9</td>
           <td class="l name clk" onclick="gotoRRG('kr','증권(KODEX)')" title="누르면 로테이션맵에서 보기">증권(KODEX) <span class="cnt">1</span> </td>
+          <td class="l vd">⚪ <b>반짝반등</b></td>
           <td><span class="pos">+5.1</span></td>
           <td><span class="neg">-32.9</span></td>
           <td><span class="neg">-54.5</span></td>
           <td><span class="neg">×0.63</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr><tr class="">
+          <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-blip">
           <td class="rk">10</td>
           <td class="l name clk" onclick="gotoRRG('kr','바이오(KODEX)')" title="누르면 로테이션맵에서 보기">바이오(KODEX) <span class="cnt">1</span> </td>
+          <td class="l vd">⚪ <b>반짝반등</b></td>
           <td><span class="pos">+3.2</span></td>
           <td><span class="neg">-25.8</span></td>
           <td><span class="neg">-71.7</span></td>
           <td><span class="neg">×0.77</span></td>
           <td><span class="na">·</span></td>
           <td><span class="na">·</span></td>
-          <td class="l"></td></tr></tbody></table></div>
+          <td class="l act">무시 (가짜 반등 추정)</td></tr></tbody></table></div>
 
 <div id="v4" class="view">
   <div class="note">색: <b style="color:#27c498">주도</b>(우상·강함★) · <b style="color:#508cff">회복</b>(좌상·살아남) · <b style="color:#e0a020">약화</b>(우하·식는중) · <b style="color:#ff5d6c">부진</b>(좌하·약함) · 꼬리=최근 8주 궤적 · <b>점/선을 누르면 그것만 강조+이름표시</b>, 빈곳 더블클릭=전체 · 돈은 시계방향</div>
