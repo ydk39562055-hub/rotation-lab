@@ -1,0 +1,8 @@
+# 데이터 캐시·실행기록 (로컬에서만 유지, 사이트엔 불필요)
+data/
+output/
+__pycache__/
+*.pyc
+
+# 비밀 (디스코드 웹훅 등)
+config/discord.json

@@ -1,0 +1,22 @@
+{
+  "_설명": "테마별 {구성종목 tickers, 대표ETF etf}. 미국=접미사없음, 한국=.KS/.KQ. 순위는 구성종목 RS 중앙값으로 매기고, RRG는 etf가 있으면 그 ETF로 그린다(없으면 동일가중 바스켓). etf:null 가능. 빈 tickers는 스킵.",
+
+  "AI반도체":        {"tickers": ["NVDA","TSM","AVGO","AMD","MRVL","INTC"], "etf": "SMH"},
+  "AI메모리":        {"tickers": ["MU","000660.KS","005930.KS"], "etf": null},
+  "AI전력인프라":     {"tickers": ["GEV","VRT","ETN","NVT","GLW"], "etf": "GRID"},
+  "원전":            {"tickers": ["CEG","VST","TLN","OKLO","CCJ","D"], "etf": "URA"},
+  "양자컴퓨팅":       {"tickers": ["IONQ","RGTI","QBTS","QUBT"], "etf": "QTUM"},
+  "휴머노이드로봇":    {"tickers": ["TSLA","SYM","ISRG","TER","ROK","AMBA"], "etf": "BOTZ"},
+  "방산":            {"tickers": ["LMT","RTX","KTOS","NOC","AVAV","RCAT","LDOS"], "etf": "ITA"},
+  "사이버보안":       {"tickers": ["CRWD","PANW","NET","ZS","S","FTNT"], "etf": "CIBR"},
+  "스테이블코인크립토": {"tickers": ["CRCL","COIN","HOOD","MSTR"], "etf": "IBIT"},
+  "GLP1비만약":      {"tickers": ["LLY","NVO","VKTX","GPCR"], "etf": "XBI"},
+  "금은광산":        {"tickers": ["NEM","AEM","WPM","PAAS","GOLD","FNV"], "etf": "GDX"},
+  "우주":            {"tickers": ["RKLB","ASTS","LUNR","PL"], "etf": "UFO"},
+  "데이터센터REIT":   {"tickers": ["EQIX","DLR"], "etf": "SRVR"},
+  "로보택시":         {"tickers": ["TSLA","GOOGL","UBER","MBLY"], "etf": null},
+  "희토류전략광물":    {"tickers": ["MP","UUUU","TMC"], "etf": "REMX"},
+  "리튬2차전지":      {"tickers": ["ALB","SQM","373220.KS","247540.KQ"], "etf": "LIT"},
+  "은행금융":        {"tickers": ["JPM","BAC","GS","MS","C"], "etf": "XLF"},
+  "한국주도주":       {"tickers": ["005930.KS","000660.KS","034020.KS","329180.KS","042700.KS"], "etf": null}
+}

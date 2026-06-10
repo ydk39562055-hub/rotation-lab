@@ -1,0 +1,5 @@
+yfinance>=0.2
+pandas>=2.0
+pyarrow>=14
+plotly>=5.0
+requests>=2.28
