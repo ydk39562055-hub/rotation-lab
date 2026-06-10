@@ -1,0 +1,27 @@
+{
+ "date": "2026-06-10",
+ "go": [
+  "BAC",
+  "C",
+  "GS",
+  "JPM",
+  "MS"
+ ],
+ "watch": [
+  "000660.KS",
+  "005930.KS",
+  "AMD",
+  "AVGO",
+  "CRWD",
+  "FTNT",
+  "INTC",
+  "MRVL",
+  "MU",
+  "NET",
+  "NVDA",
+  "PANW",
+  "S",
+  "TSM",
+  "ZS"
+ ]
+}
