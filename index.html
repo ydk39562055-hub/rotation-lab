@@ -2,7 +2,7 @@
 <html lang="ko"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>로테이션 랩 · 2026-06-10</title>
+<title>로테이션 랩 · 2026-06-12</title>
 <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
 <style>
 :root{--bg:#0b0d11;--panel:#13161c;--line:#222732;--txt:#e6e8ec;--mut:#8b93a1;
@@ -35,7 +35,6 @@ table.rank{width:100%;border-collapse:collapse;font-size:13px;
   border-radius:5px;padding:1px 5px;margin-left:3px;}
 .pos{color:var(--pos);font-weight:600;} .neg{color:var(--neg);font-weight:600;}
 .flat{color:var(--flat);} .na{color:#4a5160;}
-tr.rot-row{background:rgba(202,160,36,.10);}
 .rank .vd{font-size:12.5px;white-space:nowrap;}
 .rank .vd b{font-weight:700;}
 .rank .flags{font-size:10.5px;color:#caa024;}
@@ -74,13 +73,13 @@ tr.v-recover{background:rgba(80,140,255,.08);}
 
 <h1>📡 로테이션 랩 <span style="font-size:13px;color:var(--mut);font-weight:500;letter-spacing:1px">ROTATION LAB</span></h1>
 <div class="meta">
-  기준일 <b>2026-06-10</b> · 벤치마크 미국 SPY / 한국 ^KS200<br>
+  기준일 <b>2026-06-12</b> · 벤치마크 미국 SPY / 한국 ^KS200<br>
   RS = 자산수익률 − 벤치마크수익률 (×100, 거래일 5/21/63) · 종합점수 = 0.5·RS63+0.3·RS21+0.2·RS5<br>
   <span class="ok">수집 실패 없음</span>
 </div>
 
 
-<div class="concl"><div class="ct">📋 오늘의 결론</div><div class="cl">🟢 주도 지속: 은행금융</div><div class="cl">🟡 눌림 대기: AI메모리, AI반도체, 사이버보안</div><div class="legend2">판정: 🟢주도지속 · 🟡건강한눌림 · 🟠꺾임의심 · 🔵회복진행 · ⚪반짝반등 · ⚫소외 &nbsp;|&nbsp; ⚠️쏠림(한두종목착시) · 🔄(거래대금 유입) · ↗(순위 급부상)</div></div>
+<div class="concl"><div class="ct">📋 오늘의 결론</div><div class="cl">🟢 주도 지속: AI메모리, 은행금융</div><div class="cl">🟡 눌림 대기: AI반도체, 사이버보안 · 🔵 회복 관찰: GLP1비만약</div><div class="cl">변화: AI반도체 🟠→🟡, AI메모리 🟡→🟢, 휴머노이드로봇 ⚫→🟠, AI전력인프라 ⚫→🟠, 데이터센터REIT ⚪→⚫, 리튬2차전지 ⚫→⚪</div><div class="legend2">판정: 🟢주도지속 · 🟡건강한눌림 · 🟠꺾임의심 · 🔵회복진행 · ⚪반짝반등 · ⚫소외 &nbsp;|&nbsp; ⚠️쏠림(한두종목착시) · 🔄(거래대금 유입) · ↗(순위 급부상)</div></div>
 
 <div class="tabs">
   <div class="tab on" data-v="v1">🔥 테마 랭킹</div>
@@ -97,185 +96,185 @@ tr.v-recover{background:rgba(80,140,255,.08);}
       <th title="구성종목 중 52주 신고가 −15% 이내 비율">강세폭</th><th>거래대금</th>
       <th>전일</th><th>5일전</th><th class="l">행동</th></tr></thead><tbody><tr class="v-pull">
           <td class="rk">1</td>
-          <td class="l name clk" onclick="gotoRRG('theme','AI메모리')" title="누르면 로테이션맵에서 보기">AI메모리 <span class="cnt">3</span> </td>
-          <td class="l vd">🟡 <b>건강한눌림</b></td>
-          <td><span class="neg">-3.7</span></td>
-          <td><span class="pos">+14.8</span></td>
-          <td><span class="pos">+97.0</span></td>
-          <td>67%</td><td><span class="pos">×1.55</span></td>
-          <td><span class="na">·</span></td>
-          <td><span class="na">·</span></td>
-          <td class="l act">진입 대기 — RS5 양전환 시 1순위 승격</td></tr><tr class="v-pull">
-          <td class="rk">2</td>
           <td class="l name clk" onclick="gotoRRG('theme','AI반도체')" title="누르면 로테이션맵에서 보기">AI반도체 <span class="cnt">6</span> <span class="etf">SMH</span></td>
           <td class="l vd">🟡 <b>건강한눌림</b></td>
-          <td><span class="neg">-4.4</span></td>
-          <td><span class="pos">+0.5</span></td>
-          <td><span class="pos">+68.0</span></td>
-          <td>50%</td><td><span class="pos">×1.24</span></td>
-          <td><span class="na">·</span></td>
-          <td><span class="na">·</span></td>
-          <td class="l act">진입 대기 — RS5 양전환 시 1순위 승격</td></tr><tr class="v-pull">
-          <td class="rk">3</td>
-          <td class="l name clk" onclick="gotoRRG('theme','사이버보안')" title="누르면 로테이션맵에서 보기">사이버보안 <span class="cnt">6</span> <span class="etf">CIBR</span></td>
-          <td class="l vd">🟡 <b>건강한눌림</b></td>
-          <td><span class="neg">-9.6</span></td>
-          <td><span class="pos">+20.9</span></td>
-          <td><span class="pos">+21.7</span></td>
-          <td>50%</td><td><span class="pos">×1.29</span></td>
-          <td><span class="na">·</span></td>
+          <td><span class="neg">-3.9</span></td>
+          <td><span class="pos">+1.5</span></td>
+          <td><span class="pos">+75.1</span></td>
+          <td>83%</td><td><span class="pos">×1.32</span></td>
+          <td><span class="pos">▲1</span></td>
           <td><span class="na">·</span></td>
           <td class="l act">진입 대기 — RS5 양전환 시 1순위 승격</td></tr><tr class="v-lead">
-          <td class="rk">4</td>
-          <td class="l name clk" onclick="gotoRRG('theme','은행금융')" title="누르면 로테이션맵에서 보기">은행금융 <span class="cnt">5</span> <span class="etf">XLF</span></td>
+          <td class="rk">2</td>
+          <td class="l name clk" onclick="gotoRRG('theme','AI메모리')" title="누르면 로테이션맵에서 보기">AI메모리 <span class="cnt">3</span> </td>
           <td class="l vd">🟢 <b>주도지속</b></td>
-          <td><span class="pos">+5.6</span></td>
-          <td><span class="pos">+7.4</span></td>
-          <td><span class="pos">+15.1</span></td>
-          <td>100%</td><td><span class="flat">×1.13</span></td>
-          <td><span class="na">·</span></td>
+          <td><span class="pos">+2.5</span></td>
+          <td><span class="pos">+5.2</span></td>
+          <td><span class="pos">+65.7</span></td>
+          <td>67%</td><td><span class="pos">×1.39</span></td>
+          <td><span class="neg">▼1</span></td>
           <td><span class="na">·</span></td>
           <td class="l act">1순위 — 이 테마에서 종목 탐색</td></tr><tr class="v-break">
-          <td class="rk">5</td>
+          <td class="rk">3</td>
           <td class="l name clk" onclick="gotoRRG('theme','우주')" title="누르면 로테이션맵에서 보기">우주 <span class="cnt">4</span> <span class="etf">UFO</span></td>
           <td class="l vd">🟠 <b>꺾임의심</b> <span class="flags">⚠️쏠림</span></td>
-          <td><span class="neg">-24.8</span></td>
-          <td><span class="neg">-1.2</span></td>
-          <td><span class="pos">+29.9</span></td>
-          <td>0%</td><td><span class="flat">×1.01</span></td>
+          <td><span class="neg">-6.4</span></td>
+          <td><span class="neg">-3.4</span></td>
+          <td><span class="pos">+41.3</span></td>
+          <td>0%</td><td><span class="flat">×0.96</span></td>
+          <td><span class="pos">▲2</span></td>
           <td><span class="na">·</span></td>
+          <td class="l act">보유분 경계 — 신규 금지</td></tr><tr class="v-pull">
+          <td class="rk">4</td>
+          <td class="l name clk" onclick="gotoRRG('theme','사이버보안')" title="누르면 로테이션맵에서 보기">사이버보안 <span class="cnt">6</span> <span class="etf">CIBR</span></td>
+          <td class="l vd">🟡 <b>건강한눌림</b></td>
+          <td><span class="neg">-2.7</span></td>
+          <td><span class="pos">+24.2</span></td>
+          <td><span class="pos">+20.9</span></td>
+          <td>50%</td><td><span class="flat">×1.10</span></td>
+          <td><span class="neg">▼1</span></td>
           <td><span class="na">·</span></td>
-          <td class="l act">보유분 경계 — 신규 금지</td></tr><tr class="v-break">
+          <td class="l act">진입 대기 — RS5 양전환 시 1순위 승격</td></tr><tr class="v-lead">
+          <td class="rk">5</td>
+          <td class="l name clk" onclick="gotoRRG('theme','은행금융')" title="누르면 로테이션맵에서 보기">은행금융 <span class="cnt">5</span> <span class="etf">XLF</span></td>
+          <td class="l vd">🟢 <b>주도지속</b></td>
+          <td><span class="pos">+3.4</span></td>
+          <td><span class="pos">+9.3</span></td>
+          <td><span class="pos">+20.4</span></td>
+          <td>100%</td><td><span class="flat">×1.02</span></td>
+          <td><span class="neg">▼1</span></td>
+          <td><span class="na">·</span></td>
+          <td class="l act">1순위 — 이 테마에서 종목 탐색</td></tr><tr class="v-break">
           <td class="rk">6</td>
           <td class="l name clk" onclick="gotoRRG('theme','양자컴퓨팅')" title="누르면 로테이션맵에서 보기">양자컴퓨팅 <span class="cnt">4</span> <span class="etf">QTUM</span></td>
           <td class="l vd">🟠 <b>꺾임의심</b> <span class="flags">⚠️쏠림</span></td>
-          <td><span class="neg">-18.9</span></td>
-          <td><span class="pos">+4.2</span></td>
-          <td><span class="pos">+16.1</span></td>
-          <td>0%</td><td><span class="pos">×1.33</span></td>
-          <td><span class="na">·</span></td>
+          <td><span class="neg">-10.2</span></td>
+          <td><span class="pos">+5.2</span></td>
+          <td><span class="pos">+22.4</span></td>
+          <td>0%</td><td><span class="flat">×0.99</span></td>
+          <td><span class="flat">—</span></td>
           <td><span class="na">·</span></td>
           <td class="l act">보유분 경계 — 신규 금지</td></tr><tr class="v-break">
           <td class="rk">7</td>
-          <td class="l name clk" onclick="gotoRRG('theme','AI전력인프라')" title="누르면 로테이션맵에서 보기">AI전력인프라 <span class="cnt">5</span> <span class="etf">GRID</span></td>
-          <td class="l vd">🟠 <b>꺾임의심</b></td>
-          <td><span class="neg">-2.6</span></td>
-          <td><span class="neg">-6.7</span></td>
-          <td><span class="pos">+2.4</span></td>
-          <td>40%</td><td><span class="flat">×0.97</span></td>
-          <td><span class="na">·</span></td>
-          <td><span class="na">·</span></td>
-          <td class="l act">보유분 경계 — 신규 금지</td></tr><tr class="v-blip">
-          <td class="rk">8</td>
-          <td class="l name clk" onclick="gotoRRG('theme','데이터센터REIT')" title="누르면 로테이션맵에서 보기">데이터센터REIT <span class="cnt">2</span> <span class="etf">SRVR</span></td>
-          <td class="l vd">⚪ <b>반짝반등</b></td>
-          <td><span class="pos">+1.8</span></td>
-          <td><span class="neg">-2.9</span></td>
-          <td><span class="neg">-2.0</span></td>
-          <td>100%</td><td><span class="flat">×1.05</span></td>
-          <td><span class="na">·</span></td>
-          <td><span class="na">·</span></td>
-          <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-break">
-          <td class="rk">9</td>
           <td class="l name clk" onclick="gotoRRG('theme','휴머노이드로봇')" title="누르면 로테이션맵에서 보기">휴머노이드로봇 <span class="cnt">6</span> <span class="etf">BOTZ</span></td>
           <td class="l vd">🟠 <b>꺾임의심</b></td>
-          <td><span class="neg">-3.2</span></td>
-          <td><span class="neg">-6.2</span></td>
-          <td><span class="pos">+1.4</span></td>
-          <td>33%</td><td><span class="flat">×1.07</span></td>
+          <td><span class="neg">-2.9</span></td>
+          <td><span class="neg">-6.1</span></td>
+          <td><span class="pos">+2.2</span></td>
+          <td>33%</td><td><span class="flat">×0.94</span></td>
+          <td><span class="pos">▲3</span></td>
           <td><span class="na">·</span></td>
+          <td class="l act">보유분 경계 — 신규 금지</td></tr><tr class="v-break">
+          <td class="rk">8</td>
+          <td class="l name clk" onclick="gotoRRG('theme','AI전력인프라')" title="누르면 로테이션맵에서 보기">AI전력인프라 <span class="cnt">5</span> <span class="etf">GRID</span></td>
+          <td class="l vd">🟠 <b>꺾임의심</b></td>
+          <td><span class="neg">-3.4</span></td>
+          <td><span class="neg">-10.7</span></td>
+          <td><span class="pos">+2.2</span></td>
+          <td>40%</td><td><span class="flat">×1.03</span></td>
+          <td><span class="pos">▲3</span></td>
           <td><span class="na">·</span></td>
           <td class="l act">보유분 경계 — 신규 금지</td></tr><tr class="v-laggard">
-          <td class="rk">10</td>
+          <td class="rk">9</td>
           <td class="l name clk" onclick="gotoRRG('theme','로보택시')" title="누르면 로테이션맵에서 보기">로보택시 <span class="cnt">4</span> </td>
           <td class="l vd">⚫ <b>소외</b></td>
-          <td><span class="neg">-1.1</span></td>
-          <td><span class="neg">-7.0</span></td>
-          <td><span class="neg">-0.4</span></td>
-          <td>25%</td><td><span class="flat">×1.00</span></td>
+          <td><span class="neg">-1.7</span></td>
+          <td><span class="neg">-7.7</span></td>
+          <td><span class="neg">-1.6</span></td>
+          <td>25%</td><td><span class="flat">×1.01</span></td>
+          <td><span class="flat">—</span></td>
           <td><span class="na">·</span></td>
-          <td><span class="na">·</span></td>
-          <td class="l act">무시</td></tr><tr class="v-blip">
-          <td class="rk">11</td>
+          <td class="l act">무시</td></tr><tr class="v-recover">
+          <td class="rk">10</td>
           <td class="l name clk" onclick="gotoRRG('theme','GLP1비만약')" title="누르면 로테이션맵에서 보기">GLP1비만약 <span class="cnt">4</span> <span class="etf">XBI</span></td>
-          <td class="l vd">⚪ <b>반짝반등</b></td>
-          <td><span class="pos">+6.6</span></td>
-          <td><span class="neg">-0.5</span></td>
-          <td><span class="neg">-10.5</span></td>
-          <td>25%</td><td><span class="flat">×0.89</span></td>
+          <td class="l vd">🔵 <b>회복진행</b></td>
+          <td><span class="pos">+4.4</span></td>
+          <td><span class="pos">+4.0</span></td>
+          <td><span class="neg">-11.2</span></td>
+          <td>25%</td><td><span class="flat">×1.03</span></td>
+          <td><span class="neg">▼2</span></td>
           <td><span class="na">·</span></td>
+          <td class="l act">관찰 리스트 — 3일 연속 유지 시 후보</td></tr><tr class="v-laggard">
+          <td class="rk">11</td>
+          <td class="l name clk" onclick="gotoRRG('theme','데이터센터REIT')" title="누르면 로테이션맵에서 보기">데이터센터REIT <span class="cnt">2</span> <span class="etf">SRVR</span></td>
+          <td class="l vd">⚫ <b>소외</b></td>
+          <td><span class="neg">-1.1</span></td>
+          <td><span class="neg">-4.6</span></td>
+          <td><span class="neg">-6.1</span></td>
+          <td>100%</td><td><span class="flat">×1.04</span></td>
+          <td><span class="neg">▼4</span></td>
           <td><span class="na">·</span></td>
-          <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-laggard">
+          <td class="l act">무시</td></tr><tr class="v-laggard">
           <td class="rk">12</td>
           <td class="l name clk" onclick="gotoRRG('theme','원전')" title="누르면 로테이션맵에서 보기">원전 <span class="cnt">6</span> <span class="etf">URA</span></td>
           <td class="l vd">⚫ <b>소외</b> <span class="flags">⚠️쏠림</span></td>
-          <td><span class="neg">-4.6</span></td>
-          <td><span class="neg">-9.7</span></td>
-          <td><span class="neg">-18.6</span></td>
-          <td>17%</td><td><span class="flat">×1.02</span></td>
-          <td><span class="na">·</span></td>
+          <td><span class="neg">-5.2</span></td>
+          <td><span class="neg">-11.6</span></td>
+          <td><span class="neg">-16.6</span></td>
+          <td>17%</td><td><span class="flat">×1.03</span></td>
+          <td><span class="pos">▲1</span></td>
           <td><span class="na">·</span></td>
           <td class="l act">무시</td></tr><tr class="v-blip">
           <td class="rk">13</td>
           <td class="l name clk" onclick="gotoRRG('theme','방산')" title="누르면 로테이션맵에서 보기">방산 <span class="cnt">7</span> <span class="etf">ITA</span></td>
           <td class="l vd">⚪ <b>반짝반등</b> <span class="flags">⚠️쏠림</span></td>
-          <td><span class="pos">+0.4</span></td>
-          <td><span class="pos">+3.6</span></td>
-          <td><span class="neg">-30.8</span></td>
-          <td>14%</td><td><span class="flat">×0.87</span></td>
-          <td><span class="na">·</span></td>
-          <td><span class="na">·</span></td>
-          <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-blip">
-          <td class="rk">14</td>
-          <td class="l name clk" onclick="gotoRRG('theme','한국주도주')" title="누르면 로테이션맵에서 보기">한국주도주 <span class="cnt">5</span> </td>
-          <td class="l vd">⚪ <b>반짝반등</b></td>
-          <td><span class="pos">+3.4</span></td>
-          <td><span class="neg">-9.3</span></td>
-          <td><span class="neg">-36.8</span></td>
-          <td>40%</td><td><span class="flat">×1.01</span></td>
-          <td><span class="na">·</span></td>
+          <td><span class="pos">+0.6</span></td>
+          <td><span class="pos">+3.5</span></td>
+          <td><span class="neg">-35.7</span></td>
+          <td>14%</td><td><span class="neg">×0.76</span></td>
+          <td><span class="neg">▼1</span></td>
           <td><span class="na">·</span></td>
           <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-laggard">
-          <td class="rk">15</td>
-          <td class="l name clk" onclick="gotoRRG('theme','금은광산')" title="누르면 로테이션맵에서 보기">금은광산 <span class="cnt">6</span> <span class="etf">GDX</span></td>
-          <td class="l vd">⚫ <b>소외</b> <span class="flags">⚠️쏠림</span></td>
-          <td><span class="neg">-7.4</span></td>
-          <td><span class="neg">-16.0</span></td>
-          <td><span class="neg">-31.0</span></td>
-          <td>0%</td><td><span class="flat">×0.88</span></td>
-          <td><span class="na">·</span></td>
-          <td><span class="na">·</span></td>
-          <td class="l act">무시</td></tr><tr class="v-laggard">
-          <td class="rk">16</td>
-          <td class="l name clk" onclick="gotoRRG('theme','리튬2차전지')" title="누르면 로테이션맵에서 보기">리튬2차전지 <span class="cnt">4</span> <span class="etf">LIT</span></td>
-          <td class="l vd">⚫ <b>소외</b> <span class="flags">⚠️쏠림</span></td>
-          <td><span class="neg">-4.0</span></td>
-          <td><span class="neg">-25.3</span></td>
-          <td><span class="neg">-29.0</span></td>
-          <td>0%</td><td><span class="flat">×0.91</span></td>
-          <td><span class="na">·</span></td>
-          <td><span class="na">·</span></td>
-          <td class="l act">무시</td></tr><tr class="v-laggard">
-          <td class="rk">17</td>
-          <td class="l name clk" onclick="gotoRRG('theme','스테이블코인크립토')" title="누르면 로테이션맵에서 보기">스테이블코인크립토 <span class="cnt">4</span> <span class="etf">IBIT</span></td>
-          <td class="l vd">⚫ <b>소외</b> <span class="flags">⚠️쏠림</span></td>
-          <td><span class="neg">-9.4</span></td>
-          <td><span class="neg">-25.6</span></td>
-          <td><span class="neg">-27.3</span></td>
-          <td>0%</td><td><span class="flat">×0.94</span></td>
-          <td><span class="na">·</span></td>
-          <td><span class="na">·</span></td>
-          <td class="l act">무시</td></tr><tr class="v-laggard">
-          <td class="rk">18</td>
+          <td class="rk">14</td>
           <td class="l name clk" onclick="gotoRRG('theme','희토류전략광물')" title="누르면 로테이션맵에서 보기">희토류전략광물 <span class="cnt">3</span> <span class="etf">REMX</span></td>
           <td class="l vd">⚫ <b>소외</b> <span class="flags">⚠️쏠림</span></td>
-          <td><span class="neg">-21.9</span></td>
-          <td><span class="neg">-19.4</span></td>
-          <td><span class="neg">-30.6</span></td>
-          <td>0%</td><td><span class="flat">×1.02</span></td>
+          <td><span class="neg">-10.6</span></td>
+          <td><span class="neg">-12.8</span></td>
+          <td><span class="neg">-28.9</span></td>
+          <td>0%</td><td><span class="flat">×0.99</span></td>
+          <td><span class="pos">▲4</span></td>
           <td><span class="na">·</span></td>
+          <td class="l act">무시</td></tr><tr class="v-laggard">
+          <td class="rk">15</td>
+          <td class="l name clk" onclick="gotoRRG('theme','스테이블코인크립토')" title="누르면 로테이션맵에서 보기">스테이블코인크립토 <span class="cnt">4</span> <span class="etf">IBIT</span></td>
+          <td class="l vd">⚫ <b>소외</b> <span class="flags">⚠️쏠림</span></td>
+          <td><span class="neg">-2.1</span></td>
+          <td><span class="neg">-27.9</span></td>
+          <td><span class="neg">-25.8</span></td>
+          <td>0%</td><td><span class="flat">×0.91</span></td>
+          <td><span class="pos">▲2</span></td>
           <td><span class="na">·</span></td>
-          <td class="l act">무시</td></tr></tbody></table>
+          <td class="l act">무시</td></tr><tr class="v-blip">
+          <td class="rk">16</td>
+          <td class="l name clk" onclick="gotoRRG('theme','리튬2차전지')" title="누르면 로테이션맵에서 보기">리튬2차전지 <span class="cnt">4</span> <span class="etf">LIT</span></td>
+          <td class="l vd">⚪ <b>반짝반등</b></td>
+          <td><span class="pos">+1.2</span></td>
+          <td><span class="neg">-23.5</span></td>
+          <td><span class="neg">-33.6</span></td>
+          <td>25%</td><td><span class="flat">×0.83</span></td>
+          <td><span class="neg">▼1</span></td>
+          <td><span class="na">·</span></td>
+          <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-laggard">
+          <td class="rk">17</td>
+          <td class="l name clk" onclick="gotoRRG('theme','금은광산')" title="누르면 로테이션맵에서 보기">금은광산 <span class="cnt">6</span> <span class="etf">GDX</span></td>
+          <td class="l vd">⚫ <b>소외</b> <span class="flags">⚠️쏠림</span></td>
+          <td><span class="neg">-8.8</span></td>
+          <td><span class="neg">-19.0</span></td>
+          <td><span class="neg">-32.8</span></td>
+          <td>0%</td><td><span class="flat">×1.03</span></td>
+          <td><span class="neg">▼1</span></td>
+          <td><span class="na">·</span></td>
+          <td class="l act">무시</td></tr><tr class="v-blip">
+          <td class="rk">18</td>
+          <td class="l name clk" onclick="gotoRRG('theme','한국주도주')" title="누르면 로테이션맵에서 보기">한국주도주 <span class="cnt">5</span> </td>
+          <td class="l vd">⚪ <b>반짝반등</b></td>
+          <td><span class="pos">+4.2</span></td>
+          <td><span class="neg">-12.3</span></td>
+          <td><span class="neg">-47.5</span></td>
+          <td>40%</td><td><span class="neg">×0.72</span></td>
+          <td><span class="neg">▼4</span></td>
+          <td><span class="na">·</span></td>
+          <td class="l act">무시 (가짜 반등 추정)</td></tr></tbody></table>
 </div>
 <div id="v2" class="view"><table class="rank"><thead><tr>
       <th>#</th><th class="l">이름</th><th class="l">판정</th>
@@ -285,113 +284,113 @@ tr.v-recover{background:rgba(80,140,255,.08);}
           <td class="rk">1</td>
           <td class="l name clk" onclick="gotoRRG('us','기술(XLK)')" title="누르면 로테이션맵에서 보기">기술(XLK) <span class="cnt">1</span> </td>
           <td class="l vd">🟡 <b>건강한눌림</b></td>
-          <td><span class="neg">-5.8</span></td>
-          <td><span class="pos">+3.1</span></td>
-          <td><span class="pos">+20.4</span></td>
-          <td><span class="pos">×1.65</span></td>
-          <td><span class="na">·</span></td>
+          <td><span class="neg">-2.6</span></td>
+          <td><span class="pos">+4.6</span></td>
+          <td><span class="pos">+22.0</span></td>
+          <td><span class="pos">×1.81</span></td>
+          <td><span class="flat">—</span></td>
           <td><span class="na">·</span></td>
           <td class="l act">진입 대기 — RS5 양전환 시 1순위 승격</td></tr><tr class="v-recover">
           <td class="rk">2</td>
-          <td class="l name clk" onclick="gotoRRG('us','헬스케어(XLV)')" title="누르면 로테이션맵에서 보기">헬스케어(XLV) <span class="cnt">1</span> </td>
+          <td class="l name clk" onclick="gotoRRG('us','금융(XLF)')" title="누르면 로테이션맵에서 보기">금융(XLF) <span class="cnt">1</span> </td>
           <td class="l vd">🔵 <b>회복진행</b></td>
-          <td><span class="pos">+8.5</span></td>
-          <td><span class="pos">+7.8</span></td>
-          <td><span class="neg">-7.8</span></td>
-          <td><span class="pos">×1.28</span></td>
-          <td><span class="na">·</span></td>
+          <td><span class="pos">+3.4</span></td>
+          <td><span class="pos">+2.1</span></td>
+          <td><span class="neg">-2.8</span></td>
+          <td><span class="flat">×1.01</span></td>
+          <td><span class="pos">▲1</span></td>
           <td><span class="na">·</span></td>
           <td class="l act">관찰 리스트 — 3일 연속 유지 시 후보</td></tr><tr class="v-blip">
           <td class="rk">3</td>
           <td class="l name clk" onclick="gotoRRG('us','부동산(XLRE)')" title="누르면 로테이션맵에서 보기">부동산(XLRE) <span class="cnt">1</span> </td>
           <td class="l vd">⚪ <b>반짝반등</b></td>
-          <td><span class="pos">+6.4</span></td>
-          <td><span class="pos">+1.3</span></td>
-          <td><span class="neg">-3.7</span></td>
-          <td><span class="flat">×0.88</span></td>
-          <td><span class="na">·</span></td>
+          <td><span class="pos">+3.7</span></td>
+          <td><span class="pos">+0.8</span></td>
+          <td><span class="neg">-3.8</span></td>
+          <td><span class="flat">×0.87</span></td>
+          <td><span class="neg">▼1</span></td>
           <td><span class="na">·</span></td>
           <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-recover">
           <td class="rk">4</td>
-          <td class="l name clk" onclick="gotoRRG('us','금융(XLF)')" title="누르면 로테이션맵에서 보기">금융(XLF) <span class="cnt">1</span> </td>
+          <td class="l name clk" onclick="gotoRRG('us','헬스케어(XLV)')" title="누르면 로테이션맵에서 보기">헬스케어(XLV) <span class="cnt">1</span> </td>
           <td class="l vd">🔵 <b>회복진행</b></td>
-          <td><span class="pos">+4.9</span></td>
-          <td><span class="pos">+2.5</span></td>
-          <td><span class="neg">-3.8</span></td>
-          <td><span class="flat">×1.15</span></td>
+          <td><span class="pos">+3.9</span></td>
+          <td><span class="pos">+5.7</span></td>
+          <td><span class="neg">-8.0</span></td>
+          <td><span class="pos">×1.26</span></td>
+          <td><span class="flat">—</span></td>
           <td><span class="na">·</span></td>
+          <td class="l act">관찰 리스트 — 3일 연속 유지 시 후보</td></tr><tr class="v-recover">
+          <td class="rk">5</td>
+          <td class="l name clk" onclick="gotoRRG('us','산업재(XLI)')" title="누르면 로테이션맵에서 보기">산업재(XLI) <span class="cnt">1</span> </td>
+          <td class="l vd">🔵 <b>회복진행</b></td>
+          <td><span class="pos">+2.0</span></td>
+          <td><span class="pos">+0.5</span></td>
+          <td><span class="neg">-4.8</span></td>
+          <td><span class="flat">×1.01</span></td>
+          <td><span class="pos">▲2</span></td>
+          <td><span class="na">·</span></td>
+          <td class="l act">관찰 리스트 — 3일 연속 유지 시 후보</td></tr><tr class="v-recover">
+          <td class="rk">6</td>
+          <td class="l name clk" onclick="gotoRRG('us','필수소비재(XLP)')" title="누르면 로테이션맵에서 보기">필수소비재(XLP) <span class="cnt">1</span> </td>
+          <td class="l vd">🔵 <b>회복진행</b></td>
+          <td><span class="pos">+6.5</span></td>
+          <td><span class="pos">+1.0</span></td>
+          <td><span class="neg">-9.3</span></td>
+          <td><span class="flat">×1.05</span></td>
+          <td><span class="neg">▼1</span></td>
           <td><span class="na">·</span></td>
           <td class="l act">관찰 리스트 — 3일 연속 유지 시 후보</td></tr><tr class="v-blip">
-          <td class="rk">5</td>
-          <td class="l name clk" onclick="gotoRRG('us','에너지(XLE)')" title="누르면 로테이션맵에서 보기">에너지(XLE) <span class="cnt">1</span> </td>
-          <td class="l vd">⚪ <b>반짝반등</b></td>
-          <td><span class="pos">+2.0</span></td>
-          <td><span class="pos">+3.1</span></td>
-          <td><span class="neg">-5.2</span></td>
-          <td><span class="neg">×0.75</span></td>
-          <td><span class="na">·</span></td>
-          <td><span class="na">·</span></td>
-          <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-blip">
-          <td class="rk">6</td>
-          <td class="l name clk" onclick="gotoRRG('us','산업재(XLI)')" title="누르면 로테이션맵에서 보기">산업재(XLI) <span class="cnt">1</span> </td>
-          <td class="l vd">⚪ <b>반짝반등</b></td>
-          <td><span class="pos">+3.8</span></td>
-          <td><span class="pos">+1.5</span></td>
-          <td><span class="neg">-5.6</span></td>
-          <td><span class="neg">×0.79</span></td>
-          <td><span class="na">·</span></td>
-          <td><span class="na">·</span></td>
-          <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-blip">
           <td class="rk">7</td>
-          <td class="l name clk" onclick="gotoRRG('us','소재(XLB)')" title="누르면 로테이션맵에서 보기">소재(XLB) <span class="cnt">1</span> </td>
+          <td class="l name clk" onclick="gotoRRG('us','임의소비재(XLY)')" title="누르면 로테이션맵에서 보기">임의소비재(XLY) <span class="cnt">1</span> </td>
           <td class="l vd">⚪ <b>반짝반등</b></td>
-          <td><span class="pos">+1.5</span></td>
-          <td><span class="neg">-1.5</span></td>
-          <td><span class="neg">-6.9</span></td>
-          <td><span class="flat">×0.96</span></td>
-          <td><span class="na">·</span></td>
+          <td><span class="pos">+1.7</span></td>
+          <td><span class="neg">-1.6</span></td>
+          <td><span class="neg">-6.6</span></td>
+          <td><span class="flat">×0.89</span></td>
+          <td><span class="pos">▲1</span></td>
           <td><span class="na">·</span></td>
           <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-blip">
           <td class="rk">8</td>
-          <td class="l name clk" onclick="gotoRRG('us','필수소비재(XLP)')" title="누르면 로테이션맵에서 보기">필수소비재(XLP) <span class="cnt">1</span> </td>
+          <td class="l name clk" onclick="gotoRRG('us','소재(XLB)')" title="누르면 로테이션맵에서 보기">소재(XLB) <span class="cnt">1</span> </td>
           <td class="l vd">⚪ <b>반짝반등</b></td>
-          <td><span class="pos">+5.7</span></td>
-          <td><span class="neg">-0.0</span></td>
-          <td><span class="neg">-10.5</span></td>
-          <td><span class="flat">×0.98</span></td>
+          <td><span class="pos">+1.8</span></td>
+          <td><span class="neg">-1.7</span></td>
+          <td><span class="neg">-7.5</span></td>
+          <td><span class="flat">×0.95</span></td>
+          <td><span class="pos">▲1</span></td>
           <td><span class="na">·</span></td>
-          <td><span class="na">·</span></td>
-          <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-blip">
+          <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-laggard">
           <td class="rk">9</td>
-          <td class="l name clk" onclick="gotoRRG('us','임의소비재(XLY)')" title="누르면 로테이션맵에서 보기">임의소비재(XLY) <span class="cnt">1</span> </td>
-          <td class="l vd">⚪ <b>반짝반등</b></td>
-          <td><span class="pos">+1.5</span></td>
-          <td><span class="neg">-3.5</span></td>
-          <td><span class="neg">-7.7</span></td>
-          <td><span class="neg">×0.78</span></td>
+          <td class="l name clk" onclick="gotoRRG('us','에너지(XLE)')" title="누르면 로테이션맵에서 보기">에너지(XLE) <span class="cnt">1</span> </td>
+          <td class="l vd">⚫ <b>소외</b></td>
+          <td><span class="neg">-0.2</span></td>
+          <td><span class="neg">-0.7</span></td>
+          <td><span class="neg">-11.1</span></td>
+          <td><span class="neg">×0.77</span></td>
+          <td><span class="neg">▼3</span></td>
           <td><span class="na">·</span></td>
-          <td><span class="na">·</span></td>
-          <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-blip">
+          <td class="l act">무시</td></tr><tr class="v-recover">
           <td class="rk">10</td>
-          <td class="l name clk" onclick="gotoRRG('us','유틸리티(XLU)')" title="누르면 로테이션맵에서 보기">유틸리티(XLU) <span class="cnt">1</span> </td>
-          <td class="l vd">⚪ <b>반짝반등</b></td>
-          <td><span class="pos">+3.1</span></td>
-          <td><span class="neg">-1.6</span></td>
-          <td><span class="neg">-14.0</span></td>
-          <td><span class="flat">×0.90</span></td>
-          <td><span class="na">·</span></td>
-          <td><span class="na">·</span></td>
-          <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-recover">
-          <td class="rk">11</td>
           <td class="l name clk" onclick="gotoRRG('us','커뮤니케이션(XLC)')" title="누르면 로테이션맵에서 보기">커뮤니케이션(XLC) <span class="cnt">1</span> </td>
           <td class="l vd">🔵 <b>회복진행</b> <span class="flags">🔄</span></td>
-          <td><span class="pos">+1.1</span></td>
-          <td><span class="neg">-4.6</span></td>
-          <td><span class="neg">-13.9</span></td>
-          <td><span class="pos">×1.25</span></td>
+          <td><span class="pos">+1.7</span></td>
+          <td><span class="neg">-3.2</span></td>
+          <td><span class="neg">-13.5</span></td>
+          <td><span class="pos">×1.23</span></td>
+          <td><span class="pos">▲1</span></td>
           <td><span class="na">·</span></td>
+          <td class="l act">관찰 리스트 — 3일 연속 유지 시 후보</td></tr><tr class="v-blip">
+          <td class="rk">11</td>
+          <td class="l name clk" onclick="gotoRRG('us','유틸리티(XLU)')" title="누르면 로테이션맵에서 보기">유틸리티(XLU) <span class="cnt">1</span> </td>
+          <td class="l vd">⚪ <b>반짝반등</b></td>
+          <td><span class="pos">+2.8</span></td>
+          <td><span class="neg">-2.5</span></td>
+          <td><span class="neg">-15.7</span></td>
+          <td><span class="flat">×0.87</span></td>
+          <td><span class="neg">▼1</span></td>
           <td><span class="na">·</span></td>
-          <td class="l act">관찰 리스트 — 3일 연속 유지 시 후보</td></tr></tbody></table></div>
+          <td class="l act">무시 (가짜 반등 추정)</td></tr></tbody></table></div>
 <div id="v3" class="view"><table class="rank"><thead><tr>
       <th>#</th><th class="l">이름</th><th class="l">판정</th>
       <th>RS5</th><th>RS21</th><th>RS63</th>
@@ -400,101 +399,101 @@ tr.v-recover{background:rgba(80,140,255,.08);}
           <td class="rk">1</td>
           <td class="l name clk" onclick="gotoRRG('kr','반도체(KODEX)')" title="누르면 로테이션맵에서 보기">반도체(KODEX) <span class="cnt">1</span> </td>
           <td class="l vd">🟢 <b>주도지속</b></td>
-          <td><span class="pos">+4.8</span></td>
-          <td><span class="neg">-1.3</span></td>
-          <td><span class="pos">+14.6</span></td>
-          <td><span class="pos">×1.23</span></td>
+          <td><span class="pos">+6.7</span></td>
+          <td><span class="neg">-3.4</span></td>
+          <td><span class="pos">+1.1</span></td>
+          <td><span class="flat">×1.07</span></td>
+          <td><span class="flat">—</span></td>
           <td><span class="na">·</span></td>
-          <td><span class="na">·</span></td>
-          <td class="l act">1순위 — 이 테마에서 종목 탐색</td></tr><tr class="v-recover">
+          <td class="l act">1순위 — 이 테마에서 종목 탐색</td></tr><tr class="v-blip">
           <td class="rk">2</td>
           <td class="l name clk" onclick="gotoRRG('kr','보험(KODEX)')" title="누르면 로테이션맵에서 보기">보험(KODEX) <span class="cnt">1</span> </td>
-          <td class="l vd">🔵 <b>회복진행</b></td>
-          <td><span class="pos">+4.0</span></td>
-          <td><span class="pos">+8.0</span></td>
-          <td><span class="neg">-18.7</span></td>
-          <td><span class="flat">×1.01</span></td>
+          <td class="l vd">⚪ <b>반짝반등</b></td>
+          <td><span class="pos">+7.5</span></td>
+          <td><span class="pos">+11.1</span></td>
+          <td><span class="neg">-30.4</span></td>
+          <td><span class="neg">×0.73</span></td>
+          <td><span class="flat">—</span></td>
           <td><span class="na">·</span></td>
-          <td><span class="na">·</span></td>
-          <td class="l act">관찰 리스트 — 3일 연속 유지 시 후보</td></tr><tr class="v-laggard">
+          <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-blip">
           <td class="rk">3</td>
           <td class="l name clk" onclick="gotoRRG('kr','자동차(KODEX)')" title="누르면 로테이션맵에서 보기">자동차(KODEX) <span class="cnt">1</span> </td>
-          <td class="l vd">⚫ <b>소외</b></td>
-          <td><span class="neg">-1.6</span></td>
-          <td><span class="neg">-8.0</span></td>
-          <td><span class="neg">-31.9</span></td>
-          <td><span class="neg">×0.66</span></td>
+          <td class="l vd">⚪ <b>반짝반등</b></td>
+          <td><span class="pos">+0.4</span></td>
+          <td><span class="neg">-12.4</span></td>
+          <td><span class="neg">-46.1</span></td>
+          <td><span class="neg">×0.59</span></td>
+          <td><span class="flat">—</span></td>
           <td><span class="na">·</span></td>
-          <td><span class="na">·</span></td>
-          <td class="l act">무시</td></tr><tr class="v-recover">
+          <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-recover">
           <td class="rk">4</td>
           <td class="l name clk" onclick="gotoRRG('kr','은행(KODEX)')" title="누르면 로테이션맵에서 보기">은행(KODEX) <span class="cnt">1</span> </td>
           <td class="l vd">🔵 <b>회복진행</b> <span class="flags">🔄</span></td>
-          <td><span class="pos">+13.9</span></td>
-          <td><span class="neg">-11.1</span></td>
-          <td><span class="neg">-42.7</span></td>
-          <td><span class="pos">×3.15</span></td>
-          <td><span class="na">·</span></td>
+          <td><span class="pos">+8.9</span></td>
+          <td><span class="neg">-11.6</span></td>
+          <td><span class="neg">-57.5</span></td>
+          <td><span class="pos">×3.11</span></td>
+          <td><span class="flat">—</span></td>
           <td><span class="na">·</span></td>
           <td class="l act">관찰 리스트 — 3일 연속 유지 시 후보</td></tr><tr class="v-blip">
           <td class="rk">5</td>
           <td class="l name clk" onclick="gotoRRG('kr','건설(KODEX)')" title="누르면 로테이션맵에서 보기">건설(KODEX) <span class="cnt">1</span> </td>
           <td class="l vd">⚪ <b>반짝반등</b></td>
-          <td><span class="pos">+8.2</span></td>
-          <td><span class="neg">-32.0</span></td>
-          <td><span class="neg">-30.7</span></td>
-          <td><span class="neg">×0.35</span></td>
-          <td><span class="na">·</span></td>
+          <td><span class="pos">+6.3</span></td>
+          <td><span class="neg">-31.2</span></td>
+          <td><span class="neg">-46.1</span></td>
+          <td><span class="neg">×0.36</span></td>
+          <td><span class="flat">—</span></td>
           <td><span class="na">·</span></td>
           <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-blip">
           <td class="rk">6</td>
           <td class="l name clk" onclick="gotoRRG('kr','기계장비(KODEX)')" title="누르면 로테이션맵에서 보기">기계장비(KODEX) <span class="cnt">1</span> </td>
           <td class="l vd">⚪ <b>반짝반등</b></td>
-          <td><span class="pos">+4.8</span></td>
-          <td><span class="neg">-30.3</span></td>
-          <td><span class="neg">-45.2</span></td>
-          <td><span class="neg">×0.37</span></td>
-          <td><span class="na">·</span></td>
+          <td><span class="pos">+5.6</span></td>
+          <td><span class="neg">-30.6</span></td>
+          <td><span class="neg">-58.6</span></td>
+          <td><span class="neg">×0.39</span></td>
+          <td><span class="flat">—</span></td>
           <td><span class="na">·</span></td>
           <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-blip">
           <td class="rk">7</td>
-          <td class="l name clk" onclick="gotoRRG('kr','운송(KODEX)')" title="누르면 로테이션맵에서 보기">운송(KODEX) <span class="cnt">1</span> </td>
+          <td class="l name clk" onclick="gotoRRG('kr','에너지화학(KODEX)')" title="누르면 로테이션맵에서 보기">에너지화학(KODEX) <span class="cnt">1</span> </td>
           <td class="l vd">⚪ <b>반짝반등</b></td>
-          <td><span class="pos">+7.4</span></td>
-          <td><span class="neg">-21.4</span></td>
-          <td><span class="neg">-54.1</span></td>
-          <td><span class="neg">×0.35</span></td>
-          <td><span class="na">·</span></td>
+          <td><span class="pos">+5.0</span></td>
+          <td><span class="neg">-25.0</span></td>
+          <td><span class="neg">-61.7</span></td>
+          <td><span class="neg">×0.40</span></td>
+          <td><span class="pos">▲1</span></td>
           <td><span class="na">·</span></td>
           <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-blip">
           <td class="rk">8</td>
-          <td class="l name clk" onclick="gotoRRG('kr','에너지화학(KODEX)')" title="누르면 로테이션맵에서 보기">에너지화학(KODEX) <span class="cnt">1</span> </td>
+          <td class="l name clk" onclick="gotoRRG('kr','운송(KODEX)')" title="누르면 로테이션맵에서 보기">운송(KODEX) <span class="cnt">1</span> </td>
           <td class="l vd">⚪ <b>반짝반등</b></td>
-          <td><span class="pos">+4.3</span></td>
-          <td><span class="neg">-28.0</span></td>
-          <td><span class="neg">-51.9</span></td>
-          <td><span class="neg">×0.46</span></td>
-          <td><span class="na">·</span></td>
+          <td><span class="pos">+8.7</span></td>
+          <td><span class="neg">-19.7</span></td>
+          <td><span class="neg">-68.1</span></td>
+          <td><span class="neg">×0.40</span></td>
+          <td><span class="neg">▼1</span></td>
           <td><span class="na">·</span></td>
           <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-blip">
           <td class="rk">9</td>
           <td class="l name clk" onclick="gotoRRG('kr','증권(KODEX)')" title="누르면 로테이션맵에서 보기">증권(KODEX) <span class="cnt">1</span> </td>
           <td class="l vd">⚪ <b>반짝반등</b></td>
-          <td><span class="pos">+5.1</span></td>
-          <td><span class="neg">-32.9</span></td>
-          <td><span class="neg">-54.5</span></td>
-          <td><span class="neg">×0.63</span></td>
-          <td><span class="na">·</span></td>
+          <td><span class="pos">+2.9</span></td>
+          <td><span class="neg">-31.5</span></td>
+          <td><span class="neg">-66.0</span></td>
+          <td><span class="neg">×0.57</span></td>
+          <td><span class="flat">—</span></td>
           <td><span class="na">·</span></td>
           <td class="l act">무시 (가짜 반등 추정)</td></tr><tr class="v-blip">
           <td class="rk">10</td>
           <td class="l name clk" onclick="gotoRRG('kr','바이오(KODEX)')" title="누르면 로테이션맵에서 보기">바이오(KODEX) <span class="cnt">1</span> </td>
           <td class="l vd">⚪ <b>반짝반등</b></td>
-          <td><span class="pos">+3.2</span></td>
-          <td><span class="neg">-25.8</span></td>
-          <td><span class="neg">-71.7</span></td>
+          <td><span class="pos">+7.2</span></td>
+          <td><span class="neg">-20.8</span></td>
+          <td><span class="neg">-80.5</span></td>
           <td><span class="neg">×0.77</span></td>
-          <td><span class="na">·</span></td>
+          <td><span class="flat">—</span></td>
           <td><span class="na">·</span></td>
           <td class="l act">무시 (가짜 반등 추정)</td></tr></tbody></table></div>
 
@@ -514,11 +513,11 @@ tr.v-recover{background:rgba(80,140,255,.08);}
     <div id="rrgSectorsKr" class="chart"></div></div>
 </div>
 
-<div class="foot">로테이션 랩 · ROTATION LAB · 자동 생성 2026-06-10</div>
+<div class="foot">로테이션 랩 · ROTATION LAB · 자동 생성 2026-06-12</div>
 </div>
 
 <script>
-const RRG = {"sectors": [{"name": "기술(XLK)", "tail": [{"x": 101.85, "y": 101.59}, {"x": 102.9, "y": 101.71}, {"x": 102.28, "y": 101.59}, {"x": 102.62, "y": 100.96}, {"x": 102.52, "y": 99.76}, {"x": 101.79, "y": 98.43}, {"x": 102.05, "y": 98.53}, {"x": 102.33, "y": 98.91}], "quadrant": "약화"}, {"name": "커뮤니케이션(XLC)", "tail": [{"x": 98.98, "y": 98.5}, {"x": 98.31, "y": 98.27}, {"x": 97.5, "y": 99.07}, {"x": 97.37, "y": 98.91}, {"x": 97.53, "y": 99.68}, {"x": 98.26, "y": 100.11}, {"x": 98.19, "y": 101.1}, {"x": 97.75, "y": 100.42}], "quadrant": "회복"}, {"name": "임의소비재(XLY)", "tail": [{"x": 99.29, "y": 101.33}, {"x": 99.75, "y": 101.65}, {"x": 98.42, "y": 100.28}, {"x": 97.99, "y": 100.01}, {"x": 97.24, "y": 98.97}, {"x": 97.21, "y": 98.15}, {"x": 99.03, "y": 100.8}, {"x": 97.63, "y": 99.53}], "quadrant": "부진"}, {"name": "필수소비재(XLP)", "tail": [{"x": 98.13, "y": 98.47}, {"x": 98.08, "y": 98.94}, {"x": 98.39, "y": 98.93}, {"x": 98.43, "y": 99.45}, {"x": 98.45, "y": 101.07}, {"x": 99.2, "y": 102.43}, {"x": 98.58, "y": 101.64}, {"x": 98.25, "y": 101.0}], "quadrant": "회복"}, {"name": "에너지(XLE)", "tail": [{"x": 99.91, "y": 98.5}, {"x": 99.61, "y": 98.53}, {"x": 99.72, "y": 98.46}, {"x": 99.74, "y": 99.36}, {"x": 98.98, "y": 99.72}, {"x": 99.97, "y": 101.85}, {"x": 98.63, "y": 100.22}, {"x": 99.11, "y": 100.38}], "quadrant": "회복"}, {"name": "금융(XLF)", "tail": [{"x": 99.14, "y": 101.01}, {"x": 99.08, "y": 100.24}, {"x": 98.4, "y": 99.54}, {"x": 97.75, "y": 98.74}, {"x": 97.57, "y": 98.71}, {"x": 98.13, "y": 99.56}, {"x": 98.03, "y": 100.22}, {"x": 98.09, "y": 100.29}], "quadrant": "회복"}, {"name": "헬스케어(XLV)", "tail": [{"x": 97.04, "y": 98.54}, {"x": 97.12, "y": 99.45}, {"x": 97.49, "y": 98.93}, {"x": 97.98, "y": 100.38}, {"x": 98.23, "y": 101.55}, {"x": 98.8, "y": 101.82}, {"x": 98.79, "y": 101.51}, {"x": 98.77, "y": 101.03}], "quadrant": "회복"}, {"name": "산업재(XLI)", "tail": [{"x": 100.09, "y": 99.79}, {"x": 98.97, "y": 99.18}, {"x": 98.26, "y": 98.53}, {"x": 97.89, "y": 98.46}, {"x": 98.05, "y": 98.67}, {"x": 97.76, "y": 99.79}, {"x": 98.45, "y": 101.72}, {"x": 98.55, "y": 102.65}], "quadrant": "회복"}, {"name": "소재(XLB)", "tail": [{"x": 100.11, "y": 99.79}, {"x": 99.34, "y": 99.84}, {"x": 98.61, "y": 97.78}, {"x": 98.18, "y": 98.28}, {"x": 98.33, "y": 98.87}, {"x": 97.42, "y": 99.25}, {"x": 98.38, "y": 101.03}, {"x": 98.74, "y": 102.17}], "quadrant": "회복"}, {"name": "부동산(XLRE)", "tail": [{"x": 100.33, "y": 98.98}, {"x": 99.99, "y": 99.39}, {"x": 99.52, "y": 99.05}, {"x": 98.45, "y": 98.62}, {"x": 97.87, "y": 98.78}, {"x": 98.24, "y": 99.1}, {"x": 98.29, "y": 100.29}, {"x": 97.84, "y": 100.28}], "quadrant": "회복"}, {"name": "유틸리티(XLU)", "tail": [{"x": 100.04, "y": 98.11}, {"x": 99.0, "y": 98.48}, {"x": 99.24, "y": 98.44}, {"x": 98.72, "y": 98.78}, {"x": 97.86, "y": 98.99}, {"x": 98.17, "y": 99.74}, {"x": 98.43, "y": 100.07}, {"x": 98.3, "y": 100.36}], "quadrant": "회복"}], "sectors_kr": [{"name": "반도체(KODEX)", "tail": [{"x": 100.78, "y": 98.89}, {"x": 100.72, "y": 99.23}, {"x": 100.99, "y": 99.45}, {"x": 101.7, "y": 100.54}, {"x": 101.72, "y": 100.87}, {"x": 101.17, "y": 100.37}, {"x": 101.84, "y": 100.79}, {"x": 98.85, "y": 97.47}], "quadrant": "부진"}, {"name": "은행(KODEX)", "tail": [{"x": 99.07, "y": 99.94}, {"x": 98.63, "y": 99.79}, {"x": 97.91, "y": 98.77}, {"x": 98.23, "y": 98.65}, {"x": 97.07, "y": 98.73}, {"x": 97.81, "y": 99.42}, {"x": 97.93, "y": 100.35}, {"x": 97.9, "y": 100.37}], "quadrant": "회복"}, {"name": "자동차(KODEX)", "tail": [{"x": 98.27, "y": 100.58}, {"x": 98.31, "y": 100.74}, {"x": 98.33, "y": 100.41}, {"x": 98.1, "y": 99.93}, {"x": 98.09, "y": 100.73}, {"x": 98.56, "y": 101.2}, {"x": 98.67, "y": 100.84}, {"x": 98.28, "y": 100.71}], "quadrant": "회복"}, {"name": "에너지화학(KODEX)", "tail": [{"x": 98.86, "y": 99.23}, {"x": 98.49, "y": 99.35}, {"x": 99.17, "y": 99.6}, {"x": 100.71, "y": 101.6}, {"x": 95.98, "y": 97.84}, {"x": 97.18, "y": 99.05}, {"x": 97.64, "y": 98.56}, {"x": 97.43, "y": 97.44}], "quadrant": "부진"}, {"name": "기계장비(KODEX)", "tail": [{"x": 98.79, "y": 99.71}, {"x": 98.6, "y": 99.76}, {"x": 100.01, "y": 101.16}, {"x": 101.21, "y": 102.34}, {"x": 97.22, "y": 97.72}, {"x": 96.8, "y": 98.07}, {"x": 97.64, "y": 98.0}, {"x": 97.09, "y": 97.48}], "quadrant": "부진"}, {"name": "운송(KODEX)", "tail": [{"x": 98.17, "y": 99.9}, {"x": 98.1, "y": 100.1}, {"x": 97.78, "y": 98.79}, {"x": 97.95, "y": 98.69}, {"x": 97.27, "y": 99.21}, {"x": 97.93, "y": 100.09}, {"x": 98.04, "y": 100.23}, {"x": 97.74, "y": 100.07}], "quadrant": "회복"}, {"name": "바이오(KODEX)", "tail": [{"x": 97.85, "y": 99.61}, {"x": 98.1, "y": 99.71}, {"x": 97.87, "y": 99.01}, {"x": 98.01, "y": 98.81}, {"x": 97.23, "y": 99.66}, {"x": 97.75, "y": 99.63}, {"x": 98.2, "y": 100.78}, {"x": 98.04, "y": 100.25}], "quadrant": "회복"}, {"name": "보험(KODEX)", "tail": [{"x": 98.83, "y": 99.1}, {"x": 98.38, "y": 98.87}, {"x": 97.69, "y": 97.7}, {"x": 97.78, "y": 98.15}, {"x": 97.05, "y": 98.85}, {"x": 98.71, "y": 100.1}, {"x": 98.46, "y": 100.79}, {"x": 98.86, "y": 101.07}], "quadrant": "회복"}, {"name": "증권(KODEX)", "tail": [{"x": 100.54, "y": 99.25}, {"x": 100.2, "y": 99.38}, {"x": 99.29, "y": 99.05}, {"x": 97.92, "y": 98.61}, {"x": 97.23, "y": 98.67}, {"x": 97.35, "y": 98.92}, {"x": 97.57, "y": 99.54}, {"x": 97.41, "y": 100.58}], "quadrant": "회복"}, {"name": "건설(KODEX)", "tail": [{"x": 102.65, "y": 99.85}, {"x": 101.8, "y": 98.89}, {"x": 101.33, "y": 98.54}, {"x": 101.0, "y": 98.3}, {"x": 99.2, "y": 97.3}, {"x": 98.55, "y": 97.85}, {"x": 98.36, "y": 98.53}, {"x": 97.56, "y": 98.46}], "quadrant": "부진"}], "themes": [{"name": "AI반도체", "tail": [{"x": 103.11, "y": 101.85}, {"x": 102.58, "y": 101.44}, {"x": 102.42, "y": 101.46}, {"x": 102.44, "y": 100.96}, {"x": 102.31, "y": 99.25}, {"x": 101.51, "y": 99.1}, {"x": 101.87, "y": 98.96}, {"x": 102.11, "y": 99.74}], "quadrant": "약화"}, {"name": "AI메모리", "tail": [{"x": 101.63, "y": 100.73}, {"x": 101.92, "y": 100.94}, {"x": 102.19, "y": 102.28}, {"x": 102.64, "y": 102.41}, {"x": 103.16, "y": 101.71}, {"x": 101.89, "y": 100.16}, {"x": 102.66, "y": 100.03}, {"x": 102.47, "y": 99.29}], "quadrant": "약화"}, {"name": "AI전력인프라", "tail": [{"x": 101.29, "y": 99.98}, {"x": 100.73, "y": 99.91}, {"x": 101.22, "y": 100.17}, {"x": 102.3, "y": 100.92}, {"x": 101.34, "y": 100.09}, {"x": 99.21, "y": 98.88}, {"x": 100.3, "y": 99.44}, {"x": 100.71, "y": 99.52}], "quadrant": "약화"}, {"name": "원전", "tail": [{"x": 99.74, "y": 99.81}, {"x": 99.78, "y": 100.35}, {"x": 99.81, "y": 100.5}, {"x": 99.42, "y": 100.81}, {"x": 98.89, "y": 99.6}, {"x": 96.69, "y": 97.28}, {"x": 98.1, "y": 98.63}, {"x": 98.38, "y": 99.45}], "quadrant": "부진"}, {"name": "양자컴퓨팅", "tail": [{"x": 102.28, "y": 102.03}, {"x": 102.88, "y": 102.04}, {"x": 101.88, "y": 101.57}, {"x": 102.76, "y": 101.52}, {"x": 102.15, "y": 99.95}, {"x": 101.41, "y": 98.88}, {"x": 102.21, "y": 99.58}, {"x": 102.41, "y": 99.64}], "quadrant": "약화"}, {"name": "휴머노이드로봇", "tail": [{"x": 99.31, "y": 100.69}, {"x": 99.15, "y": 101.03}, {"x": 99.64, "y": 101.43}, {"x": 100.01, "y": 101.33}, {"x": 100.83, "y": 101.02}, {"x": 99.74, "y": 100.24}, {"x": 100.12, "y": 100.14}, {"x": 100.3, "y": 100.3}], "quadrant": "주도"}, {"name": "방산", "tail": [{"x": 99.19, "y": 99.34}, {"x": 97.19, "y": 98.1}, {"x": 97.4, "y": 98.87}, {"x": 97.77, "y": 99.44}, {"x": 98.52, "y": 100.59}, {"x": 98.46, "y": 101.44}, {"x": 99.08, "y": 102.22}, {"x": 98.8, "y": 101.36}], "quadrant": "회복"}, {"name": "사이버보안", "tail": [{"x": 98.2, "y": 98.35}, {"x": 100.0, "y": 99.98}, {"x": 99.44, "y": 99.9}, {"x": 100.89, "y": 100.78}, {"x": 101.93, "y": 102.21}, {"x": 103.1, "y": 101.83}, {"x": 102.04, "y": 100.88}, {"x": 102.69, "y": 100.37}], "quadrant": "주도"}, {"name": "스테이블코인크립토", "tail": [{"x": 99.82, "y": 100.15}, {"x": 99.96, "y": 100.2}, {"x": 100.33, "y": 100.56}, {"x": 101.82, "y": 101.32}, {"x": 100.94, "y": 100.41}, {"x": 99.71, "y": 98.75}, {"x": 98.09, "y": 96.98}, {"x": 96.08, "y": 96.4}], "quadrant": "부진"}, {"name": "GLP1비만약", "tail": [{"x": 102.0, "y": 101.46}, {"x": 101.35, "y": 100.39}, {"x": 99.41, "y": 97.9}, {"x": 99.52, "y": 98.05}, {"x": 99.04, "y": 98.64}, {"x": 97.4, "y": 98.03}, {"x": 98.79, "y": 99.84}, {"x": 98.01, "y": 99.47}], "quadrant": "부진"}, {"name": "금은광산", "tail": [{"x": 99.86, "y": 100.79}, {"x": 98.65, "y": 101.1}, {"x": 98.2, "y": 99.79}, {"x": 98.09, "y": 99.34}, {"x": 99.27, "y": 100.51}, {"x": 98.21, "y": 99.86}, {"x": 98.43, "y": 100.79}, {"x": 98.41, "y": 101.22}], "quadrant": "회복"}, {"name": "우주", "tail": [{"x": 101.88, "y": 100.61}, {"x": 101.8, "y": 100.27}, {"x": 100.27, "y": 99.17}, {"x": 100.16, "y": 97.76}, {"x": 101.26, "y": 99.38}, {"x": 101.64, "y": 99.69}, {"x": 103.27, "y": 102.45}, {"x": 100.47, "y": 99.78}], "quadrant": "약화"}, {"name": "데이터센터REIT", "tail": [{"x": 101.12, "y": 99.3}, {"x": 100.79, "y": 99.54}, {"x": 100.41, "y": 99.41}, {"x": 100.13, "y": 99.14}, {"x": 98.55, "y": 98.06}, {"x": 97.32, "y": 97.64}, {"x": 98.15, "y": 99.05}, {"x": 97.84, "y": 98.94}], "quadrant": "부진"}, {"name": "로보택시", "tail": [{"x": 99.09, "y": 100.08}, {"x": 99.57, "y": 100.31}, {"x": 99.99, "y": 101.22}, {"x": 101.52, "y": 101.65}, {"x": 101.9, "y": 101.56}, {"x": 101.09, "y": 100.23}, {"x": 100.6, "y": 99.3}, {"x": 99.33, "y": 97.35}], "quadrant": "부진"}, {"name": "희토류전략광물", "tail": [{"x": 101.19, "y": 100.61}, {"x": 101.07, "y": 101.76}, {"x": 100.26, "y": 100.25}, {"x": 100.99, "y": 101.22}, {"x": 101.26, "y": 99.98}, {"x": 97.95, "y": 97.21}, {"x": 98.86, "y": 98.74}, {"x": 98.93, "y": 98.94}], "quadrant": "부진"}, {"name": "리튬2차전지", "tail": [{"x": 102.12, "y": 101.53}, {"x": 102.1, "y": 102.2}, {"x": 101.63, "y": 99.53}, {"x": 101.96, "y": 100.77}, {"x": 101.43, "y": 98.95}, {"x": 99.75, "y": 97.93}, {"x": 100.1, "y": 98.5}, {"x": 99.75, "y": 98.44}], "quadrant": "부진"}, {"name": "은행금융", "tail": [{"x": 99.14, "y": 101.01}, {"x": 99.08, "y": 100.24}, {"x": 98.4, "y": 99.54}, {"x": 97.75, "y": 98.74}, {"x": 97.57, "y": 98.71}, {"x": 98.13, "y": 99.56}, {"x": 98.03, "y": 100.22}, {"x": 98.09, "y": 100.29}], "quadrant": "회복"}, {"name": "한국주도주", "tail": [{"x": 100.74, "y": 99.06}, {"x": 101.23, "y": 99.71}, {"x": 101.84, "y": 100.7}, {"x": 101.97, "y": 102.11}, {"x": 102.83, "y": 101.92}, {"x": 101.46, "y": 100.5}, {"x": 101.8, "y": 100.18}, {"x": 101.67, "y": 99.47}], "quadrant": "약화"}]};
+const RRG = {"sectors": [{"name": "기술(XLK)", "tail": [{"x": 102.71, "y": 101.76}, {"x": 102.5, "y": 101.29}, {"x": 102.09, "y": 101.37}, {"x": 102.63, "y": 100.5}, {"x": 102.43, "y": 99.17}, {"x": 101.96, "y": 98.27}, {"x": 102.29, "y": 98.88}, {"x": 101.25, "y": 97.94}], "quadrant": "약화"}, {"name": "커뮤니케이션(XLC)", "tail": [{"x": 99.69, "y": 99.36}, {"x": 98.1, "y": 98.96}, {"x": 97.63, "y": 98.73}, {"x": 97.86, "y": 99.61}, {"x": 97.73, "y": 99.71}, {"x": 98.14, "y": 100.53}, {"x": 98.05, "y": 100.81}, {"x": 98.3, "y": 100.91}], "quadrant": "회복"}, {"name": "임의소비재(XLY)", "tail": [{"x": 99.33, "y": 101.01}, {"x": 98.98, "y": 100.56}, {"x": 98.57, "y": 100.16}, {"x": 98.32, "y": 100.43}, {"x": 97.08, "y": 98.11}, {"x": 98.26, "y": 99.49}, {"x": 98.51, "y": 100.39}, {"x": 98.06, "y": 100.19}], "quadrant": "회복"}, {"name": "필수소비재(XLP)", "tail": [{"x": 97.87, "y": 98.61}, {"x": 98.52, "y": 99.27}, {"x": 98.54, "y": 99.35}, {"x": 98.31, "y": 99.85}, {"x": 98.42, "y": 102.06}, {"x": 98.67, "y": 101.82}, {"x": 98.13, "y": 100.94}, {"x": 99.07, "y": 101.79}], "quadrant": "회복"}, {"name": "에너지(XLE)", "tail": [{"x": 99.86, "y": 98.66}, {"x": 99.71, "y": 98.58}, {"x": 99.97, "y": 99.1}, {"x": 98.7, "y": 99.06}, {"x": 98.93, "y": 100.28}, {"x": 99.25, "y": 100.8}, {"x": 98.43, "y": 99.47}, {"x": 99.2, "y": 101.49}], "quadrant": "회복"}, {"name": "금융(XLF)", "tail": [{"x": 98.91, "y": 100.7}, {"x": 98.32, "y": 99.59}, {"x": 98.31, "y": 99.21}, {"x": 97.43, "y": 98.44}, {"x": 97.29, "y": 98.85}, {"x": 98.28, "y": 100.11}, {"x": 98.09, "y": 99.89}, {"x": 99.44, "y": 101.73}], "quadrant": "회복"}, {"name": "헬스케어(XLV)", "tail": [{"x": 96.56, "y": 99.26}, {"x": 97.42, "y": 100.04}, {"x": 97.9, "y": 99.44}, {"x": 97.92, "y": 100.42}, {"x": 98.24, "y": 101.82}, {"x": 98.78, "y": 101.6}, {"x": 98.8, "y": 101.29}, {"x": 99.8, "y": 101.7}], "quadrant": "회복"}, {"name": "산업재(XLI)", "tail": [{"x": 98.91, "y": 99.06}, {"x": 99.34, "y": 99.36}, {"x": 98.68, "y": 99.29}, {"x": 97.98, "y": 98.34}, {"x": 97.84, "y": 99.96}, {"x": 97.92, "y": 101.02}, {"x": 98.16, "y": 102.07}, {"x": 99.27, "y": 102.36}], "quadrant": "회복"}, {"name": "소재(XLB)", "tail": [{"x": 99.55, "y": 99.5}, {"x": 99.1, "y": 99.08}, {"x": 98.31, "y": 97.84}, {"x": 97.9, "y": 98.04}, {"x": 97.85, "y": 99.64}, {"x": 97.87, "y": 100.21}, {"x": 98.31, "y": 101.36}, {"x": 98.88, "y": 101.62}], "quadrant": "회복"}, {"name": "부동산(XLRE)", "tail": [{"x": 100.22, "y": 99.06}, {"x": 99.87, "y": 99.52}, {"x": 99.47, "y": 99.19}, {"x": 98.03, "y": 98.68}, {"x": 96.79, "y": 98.5}, {"x": 98.4, "y": 100.02}, {"x": 97.65, "y": 99.75}, {"x": 99.57, "y": 102.94}], "quadrant": "회복"}, {"name": "유틸리티(XLU)", "tail": [{"x": 99.74, "y": 98.31}, {"x": 99.35, "y": 98.69}, {"x": 99.25, "y": 98.81}, {"x": 97.86, "y": 98.62}, {"x": 97.69, "y": 99.24}, {"x": 98.36, "y": 100.11}, {"x": 98.22, "y": 100.14}, {"x": 98.9, "y": 101.67}], "quadrant": "회복"}], "sectors_kr": [{"name": "반도체(KODEX)", "tail": [{"x": 100.72, "y": 98.87}, {"x": 100.78, "y": 99.17}, {"x": 101.42, "y": 100.11}, {"x": 101.54, "y": 100.66}, {"x": 101.42, "y": 100.67}, {"x": 100.98, "y": 100.3}, {"x": 101.21, "y": 100.3}, {"x": 100.27, "y": 98.83}], "quadrant": "약화"}, {"name": "은행(KODEX)", "tail": [{"x": 99.36, "y": 100.13}, {"x": 98.82, "y": 99.6}, {"x": 98.23, "y": 98.52}, {"x": 97.55, "y": 97.83}, {"x": 97.33, "y": 98.8}, {"x": 98.1, "y": 99.79}, {"x": 97.79, "y": 100.3}, {"x": 98.22, "y": 100.46}], "quadrant": "회복"}, {"name": "자동차(KODEX)", "tail": [{"x": 98.25, "y": 100.35}, {"x": 98.53, "y": 100.84}, {"x": 98.05, "y": 99.84}, {"x": 97.74, "y": 99.49}, {"x": 98.2, "y": 100.85}, {"x": 98.25, "y": 100.76}, {"x": 98.41, "y": 100.81}, {"x": 98.34, "y": 101.0}], "quadrant": "회복"}, {"name": "에너지화학(KODEX)", "tail": [{"x": 98.68, "y": 98.82}, {"x": 98.76, "y": 99.62}, {"x": 100.02, "y": 100.42}, {"x": 98.94, "y": 98.88}, {"x": 96.27, "y": 97.26}, {"x": 97.35, "y": 98.99}, {"x": 97.36, "y": 98.52}, {"x": 97.76, "y": 97.9}], "quadrant": "부진"}, {"name": "기계장비(KODEX)", "tail": [{"x": 98.62, "y": 99.13}, {"x": 98.83, "y": 99.83}, {"x": 100.96, "y": 102.28}, {"x": 100.6, "y": 101.14}, {"x": 97.03, "y": 97.23}, {"x": 97.02, "y": 98.25}, {"x": 97.23, "y": 97.59}, {"x": 97.35, "y": 97.68}], "quadrant": "부진"}, {"name": "운송(KODEX)", "tail": [{"x": 98.5, "y": 100.14}, {"x": 98.25, "y": 100.06}, {"x": 97.87, "y": 98.58}, {"x": 97.46, "y": 97.64}, {"x": 97.65, "y": 99.52}, {"x": 98.09, "y": 100.22}, {"x": 97.82, "y": 100.27}, {"x": 97.87, "y": 100.14}], "quadrant": "회복"}, {"name": "바이오(KODEX)", "tail": [{"x": 97.95, "y": 99.55}, {"x": 98.21, "y": 99.74}, {"x": 98.15, "y": 98.79}, {"x": 97.7, "y": 98.69}, {"x": 97.56, "y": 99.85}, {"x": 97.96, "y": 100.04}, {"x": 98.23, "y": 100.69}, {"x": 98.2, "y": 100.5}], "quadrant": "회복"}, {"name": "보험(KODEX)", "tail": [{"x": 98.9, "y": 99.34}, {"x": 98.58, "y": 99.0}, {"x": 97.77, "y": 97.84}, {"x": 97.45, "y": 97.82}, {"x": 97.43, "y": 99.17}, {"x": 99.12, "y": 100.59}, {"x": 98.21, "y": 100.59}, {"x": 98.96, "y": 101.08}], "quadrant": "회복"}, {"name": "증권(KODEX)", "tail": [{"x": 100.46, "y": 99.25}, {"x": 100.23, "y": 99.42}, {"x": 99.23, "y": 99.03}, {"x": 98.55, "y": 98.97}, {"x": 96.95, "y": 98.59}, {"x": 97.45, "y": 99.08}, {"x": 97.35, "y": 99.57}, {"x": 97.8, "y": 101.39}], "quadrant": "회복"}, {"name": "건설(KODEX)", "tail": [{"x": 102.42, "y": 99.16}, {"x": 101.69, "y": 98.42}, {"x": 101.41, "y": 98.63}, {"x": 100.37, "y": 98.2}, {"x": 98.99, "y": 97.46}, {"x": 98.47, "y": 98.07}, {"x": 97.9, "y": 98.35}, {"x": 97.79, "y": 98.75}], "quadrant": "부진"}], "themes": [{"name": "AI반도체", "tail": [{"x": 102.6, "y": 101.31}, {"x": 102.91, "y": 101.42}, {"x": 102.48, "y": 101.48}, {"x": 102.45, "y": 99.85}, {"x": 102.24, "y": 99.49}, {"x": 101.72, "y": 99.06}, {"x": 101.69, "y": 99.22}, {"x": 101.09, "y": 98.56}], "quadrant": "약화"}, {"name": "AI메모리", "tail": [{"x": 101.1, "y": 100.0}, {"x": 101.45, "y": 100.12}, {"x": 102.31, "y": 102.29}, {"x": 103.77, "y": 103.73}, {"x": 103.28, "y": 101.66}, {"x": 101.86, "y": 100.3}, {"x": 102.48, "y": 100.35}, {"x": 101.65, "y": 98.75}], "quadrant": "약화"}, {"name": "AI전력인프라", "tail": [{"x": 100.78, "y": 99.72}, {"x": 101.3, "y": 100.04}, {"x": 102.1, "y": 100.72}, {"x": 101.46, "y": 100.21}, {"x": 101.16, "y": 100.44}, {"x": 100.04, "y": 99.6}, {"x": 99.72, "y": 99.41}, {"x": 99.43, "y": 97.79}], "quadrant": "부진"}, {"name": "원전", "tail": [{"x": 100.48, "y": 100.22}, {"x": 100.79, "y": 100.96}, {"x": 100.79, "y": 101.57}, {"x": 100.19, "y": 100.94}, {"x": 97.72, "y": 97.82}, {"x": 97.53, "y": 97.67}, {"x": 98.3, "y": 99.92}, {"x": 97.4, "y": 97.86}], "quadrant": "부진"}, {"name": "양자컴퓨팅", "tail": [{"x": 102.74, "y": 101.99}, {"x": 102.73, "y": 101.5}, {"x": 102.51, "y": 101.99}, {"x": 102.44, "y": 100.58}, {"x": 102.15, "y": 99.67}, {"x": 102.05, "y": 99.3}, {"x": 102.14, "y": 99.79}, {"x": 101.35, "y": 98.8}], "quadrant": "약화"}, {"name": "휴머노이드로봇", "tail": [{"x": 99.16, "y": 100.54}, {"x": 98.98, "y": 100.94}, {"x": 99.99, "y": 101.51}, {"x": 100.47, "y": 101.13}, {"x": 100.72, "y": 100.9}, {"x": 100.02, "y": 100.46}, {"x": 99.99, "y": 100.43}, {"x": 98.82, "y": 99.31}], "quadrant": "부진"}, {"name": "방산", "tail": [{"x": 97.8, "y": 98.34}, {"x": 97.07, "y": 98.27}, {"x": 97.75, "y": 99.71}, {"x": 98.28, "y": 99.79}, {"x": 98.38, "y": 100.98}, {"x": 98.69, "y": 102.6}, {"x": 99.32, "y": 102.04}, {"x": 99.47, "y": 101.39}], "quadrant": "회복"}, {"name": "사이버보안", "tail": [{"x": 99.17, "y": 99.52}, {"x": 99.26, "y": 99.65}, {"x": 99.29, "y": 99.58}, {"x": 101.64, "y": 101.48}, {"x": 102.73, "y": 102.44}, {"x": 102.8, "y": 101.08}, {"x": 103.1, "y": 101.26}, {"x": 101.95, "y": 100.28}], "quadrant": "주도"}, {"name": "스테이블코인크립토", "tail": [{"x": 99.93, "y": 100.05}, {"x": 100.44, "y": 100.61}, {"x": 100.34, "y": 100.51}, {"x": 101.05, "y": 100.71}, {"x": 100.78, "y": 100.14}, {"x": 99.62, "y": 98.02}, {"x": 97.28, "y": 96.83}, {"x": 96.3, "y": 97.24}], "quadrant": "부진"}, {"name": "GLP1비만약", "tail": [{"x": 101.38, "y": 100.38}, {"x": 100.54, "y": 100.41}, {"x": 99.1, "y": 96.53}, {"x": 99.04, "y": 98.28}, {"x": 98.5, "y": 98.19}, {"x": 98.57, "y": 98.92}, {"x": 99.09, "y": 100.54}, {"x": 98.44, "y": 99.54}], "quadrant": "부진"}, {"name": "금은광산", "tail": [{"x": 99.29, "y": 100.38}, {"x": 98.56, "y": 100.7}, {"x": 98.22, "y": 99.41}, {"x": 98.71, "y": 99.76}, {"x": 98.86, "y": 100.53}, {"x": 98.44, "y": 100.67}, {"x": 98.79, "y": 101.66}, {"x": 98.04, "y": 100.21}], "quadrant": "회복"}, {"name": "우주", "tail": [{"x": 102.61, "y": 100.85}, {"x": 101.33, "y": 99.9}, {"x": 100.63, "y": 99.77}, {"x": 100.02, "y": 97.93}, {"x": 101.71, "y": 100.03}, {"x": 101.87, "y": 100.17}, {"x": 102.37, "y": 101.7}, {"x": 99.98, "y": 99.31}], "quadrant": "부진"}, {"name": "데이터센터REIT", "tail": [{"x": 101.26, "y": 99.52}, {"x": 101.24, "y": 100.02}, {"x": 100.71, "y": 99.73}, {"x": 99.61, "y": 98.81}, {"x": 96.98, "y": 97.27}, {"x": 98.04, "y": 98.52}, {"x": 98.13, "y": 99.29}, {"x": 98.54, "y": 99.6}], "quadrant": "부진"}, {"name": "로보택시", "tail": [{"x": 99.64, "y": 100.07}, {"x": 99.49, "y": 100.67}, {"x": 101.44, "y": 101.9}, {"x": 102.59, "y": 102.16}, {"x": 102.14, "y": 100.99}, {"x": 100.83, "y": 100.2}, {"x": 99.93, "y": 98.91}, {"x": 99.32, "y": 97.01}], "quadrant": "부진"}, {"name": "희토류전략광물", "tail": [{"x": 101.82, "y": 101.27}, {"x": 100.4, "y": 100.78}, {"x": 101.57, "y": 101.64}, {"x": 101.25, "y": 100.86}, {"x": 99.12, "y": 98.71}, {"x": 98.5, "y": 97.85}, {"x": 99.07, "y": 98.84}, {"x": 97.58, "y": 97.47}], "quadrant": "부진"}, {"name": "리튬2차전지", "tail": [{"x": 102.26, "y": 101.62}, {"x": 101.49, "y": 100.49}, {"x": 102.36, "y": 100.27}, {"x": 101.78, "y": 99.96}, {"x": 100.56, "y": 98.96}, {"x": 100.07, "y": 98.11}, {"x": 100.28, "y": 98.71}, {"x": 98.52, "y": 97.42}], "quadrant": "부진"}, {"name": "은행금융", "tail": [{"x": 98.91, "y": 100.7}, {"x": 98.32, "y": 99.59}, {"x": 98.31, "y": 99.21}, {"x": 97.43, "y": 98.44}, {"x": 97.29, "y": 98.85}, {"x": 98.28, "y": 100.11}, {"x": 98.09, "y": 99.89}, {"x": 99.44, "y": 101.73}], "quadrant": "회복"}, {"name": "한국주도주", "tail": [{"x": 100.6, "y": 99.01}, {"x": 101.11, "y": 99.56}, {"x": 102.42, "y": 101.58}, {"x": 102.65, "y": 102.7}, {"x": 102.53, "y": 101.7}, {"x": 100.88, "y": 99.99}, {"x": 101.7, "y": 99.84}, {"x": 101.14, "y": 98.85}], "quadrant": "약화"}]};
 document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{
   document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
   document.querySelectorAll('.view').forEach(x=>x.classList.remove('on'));
