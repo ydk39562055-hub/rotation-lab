@@ -123,10 +123,10 @@ def compute_themes(prices, themes, bench_rets):
         rs5 = _nanmedian([ticker_rs(prices, t, bench_rets)["rs5"] for t in members])
         rs21 = _nanmedian([ticker_rs(prices, t, bench_rets)["rs21"] for t in members])
         rs63 = _nanmedian([ticker_rs(prices, t, bench_rets)["rs63"] for t in members])
-        breadth_vals = [_breadth_one(prices[t]) for t in members]
-        breadth = _nanmedian(breadth_vals)
-        breadth = np.nan if np.isnan(breadth) else (
-            100.0 * np.mean([b for b in breadth_vals if b is not None and not np.isnan(b)]))
+        # breadth = 0/1 지표라 '비율'이 의미 — 유효 종목들의 평균(%)을 그대로 쓴다
+        breadth_vals = [b for b in (_breadth_one(prices[t]) for t in members)
+                        if b is not None and not np.isnan(b)]
+        breadth = 100.0 * float(np.mean(breadth_vals)) if breadth_vals else np.nan
         flow = _nanmedian([_flow_one(prices[t]) for t in members])
         comp = _composite({"rs5": rs5, "rs21": rs21, "rs63": rs63})
         rows.append({
@@ -156,12 +156,15 @@ def _apply_ranks_and_signals(rows):
     rs63_rank = _rank_by(rows, "rs63")
     rs5_rank = _rank_by(rows, "rs5")
     n = len(rows)
+    # 표본이 5개 미만이면 '하위 50% + 상위 20%' 조합이 무의미 → 로테이션 판정 생략
+    rotation_enabled = n >= 5
+    top_k = max(1, round(n * 0.2))
     for i, r in enumerate(rows):
         r["rank"] = comp_rank[i]
         # 로테이션 후보: RS63 하위 50% AND RS5 상위 20%
         bottom_half_63 = rs63_rank[i] > n * 0.5
-        top20_5 = rs5_rank[i] <= max(1, n * 0.2)
-        r["rotation"] = bool(bottom_half_63 and top20_5)
+        top20_5 = rs5_rank[i] <= top_k
+        r["rotation"] = bool(rotation_enabled and bottom_half_63 and top20_5)
     rows.sort(key=lambda r: r["rank"])
     return rows
 

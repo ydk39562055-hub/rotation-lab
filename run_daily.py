@@ -36,9 +36,15 @@ def publish(dashboard_path):
         subprocess.run(["git", "-C", HERE, "commit", "-m", f"update {datetime.now():%Y-%m-%d %H:%M}"],
                        capture_output=True, text=True)
         r = subprocess.run(["git", "-C", HERE, "push"], capture_output=True, text=True)
-        print("[배포] GitHub Pages 푸시 완료" if r.returncode == 0 else f"[배포] 푸시 실패: {r.stderr[:200]}")
+        if r.returncode == 0:
+            print("[배포] GitHub Pages 푸시 완료")
+        else:
+            print(f"[배포] 푸시 실패: {r.stderr[:200]}")
+            notify.alert("로테이션 랩 — 깃허브 푸시 실패",
+                         f"라이브 사이트가 갱신되지 않았습니다. 수동 푸시 필요.\n```{r.stderr[:1500]}```")
     except Exception as e:
         print(f"[배포] 건너뜀: {e}")
+        notify.alert("로테이션 랩 — 배포 단계 오류", str(e))
 
 
 def main():
@@ -76,6 +82,12 @@ def main():
         except Exception as e:
             print(f"[디스코드] 예외 무시: {e}")
 
+    # 상장폐지 의심(3회 연속 수집 실패) 경고
+    if getattr(fetch, "SUSPECTS", None):
+        notify.alert("로테이션 랩 — 상장폐지 의심 티커",
+                     "3회 연속 수집 실패 → 테마 구성에서 빠진 채 계산되고 있습니다. "
+                     "config/themes.json 점검 필요:\n" + ", ".join(fetch.SUSPECTS))
+
     if do_open:
         import webbrowser
         webbrowser.open("file:///" + path.replace("\\", "/"))
@@ -89,4 +101,10 @@ if __name__ == "__main__":
         main()
     except Exception:
         traceback.print_exc()
+        try:
+            notify.alert("로테이션 랩 — 파이프라인 중단",
+                         "일일 실행이 끝까지 못 갔습니다. data/run.log 확인 필요.\n"
+                         f"```{traceback.format_exc()[-1500:]}```")
+        except Exception:
+            pass
         sys.exit(1)

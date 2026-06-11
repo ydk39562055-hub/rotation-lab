@@ -147,7 +147,6 @@ table.rank{{width:100%;border-collapse:collapse;font-size:13px;
   border-radius:5px;padding:1px 5px;margin-left:3px;}}
 .pos{{color:var(--pos);font-weight:600;}} .neg{{color:var(--neg);font-weight:600;}}
 .flat{{color:var(--flat);}} .na{{color:#4a5160;}}
-tr.rot-row{{background:rgba(202,160,36,.10);}}
 .rank .vd{{font-size:12.5px;white-space:nowrap;}}
 .rank .vd b{{font-weight:700;}}
 .rank .flags{{font-size:10.5px;color:#caa024;}}

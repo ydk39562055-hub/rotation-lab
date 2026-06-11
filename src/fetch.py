@@ -19,6 +19,31 @@ CONFIG = os.path.join(HERE, "config")
 PRICES = os.path.join(HERE, "data", "prices")
 
 FIRST_FETCH_DAYS = 540  # 첫 수집 시 받아올 캘린더 일수(252일 신고가 + RS63 여유 확보)
+STREAK_PATH = os.path.join(HERE, "data", "failure_streak.json")
+DELIST_STREAK = 3  # 이 횟수 연속 수집 실패하면 상장폐지 의심으로 경고
+
+# 마지막 run()에서 상장폐지 의심으로 판정된 티커 목록 (run_daily가 읽어 경고 발송)
+SUSPECTS = []
+
+
+def _update_streaks(bad_tickers, all_tickers_list):
+    """티커별 연속 수집 실패 횟수를 기록하고, 임계치 넘은 의심 목록을 돌려준다."""
+    streaks = {}
+    if os.path.exists(STREAK_PATH):
+        try:
+            with open(STREAK_PATH, encoding="utf-8") as f:
+                streaks = json.load(f)
+        except Exception:
+            streaks = {}
+    bad = set(bad_tickers)
+    for tk in all_tickers_list:
+        streaks[tk] = streaks.get(tk, 0) + 1 if tk in bad else 0
+    try:
+        with open(STREAK_PATH, "w", encoding="utf-8") as f:
+            json.dump(streaks, f, ensure_ascii=False, indent=1)
+    except Exception:
+        pass
+    return sorted(tk for tk, n in streaks.items() if n >= DELIST_STREAK)
 
 
 def load_config():
@@ -132,7 +157,7 @@ def run():
     sectors, themes = load_config()
     tickers = all_tickers(sectors, themes)
 
-    prices, failures = {}, []
+    prices, failures, soft_fails = {}, [], []
     print(f"[수집] 대상 티커 {len(tickers)}개")
     for i, tk in enumerate(tickers, 1):
         df, kind = fetch_ticker(tk)
@@ -141,9 +166,17 @@ def run():
             print(f"  ({i}/{len(tickers)}) {tk:<12} 실패 — 건너뜀")
         else:
             prices[tk] = df
+            if kind == "캐시(수집실패)":
+                soft_fails.append(tk)  # 옛 캐시로 버텼지만 새 데이터는 못 받음
             print(f"  ({i}/{len(tickers)}) {tk:<12} {kind:<10} {len(df)}행")
         if kind in ("신규", "증분"):
             time.sleep(0.2)  # 과도한 요청 방지
+
+    # 연속 실패 추적 → 상장폐지 의심 판정 (완전 실패 + 캐시 폴백 모두 카운트)
+    global SUSPECTS
+    SUSPECTS = _update_streaks(failures + soft_fails, tickers)
+    if SUSPECTS:
+        print(f"[경고] {DELIST_STREAK}회 연속 수집 실패(상장폐지 의심): {', '.join(SUSPECTS)}")
 
     print(f"[수집 완료] 성공 {len(prices)} / 실패 {len(failures)}")
     if failures:

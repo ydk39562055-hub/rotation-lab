@@ -40,6 +40,29 @@ def _top_lines(rows, k=5):
     return "\n".join(out) if out else "_데이터 없음_"
 
 
+def alert(title, message):
+    """파이프라인 실패·푸시 실패 등 운영 경고를 디스코드로 보낸다.
+    웹훅 미설정이면 콘솔 출력만 하고 넘어간다."""
+    url = _webhook()
+    if not url:
+        print(f"[경고알림] 웹훅 미설정 → 콘솔만: {title} / {message}")
+        return False
+    embed = {
+        "title": f"🚨 {title}",
+        "description": str(message)[:3900],
+        "color": 0xFF5D6C,
+        "footer": {"text": "theme-rotation 운영 경고"},
+    }
+    try:
+        resp = requests.post(url, json={"embeds": [embed]}, timeout=15)
+        ok = resp.status_code in (200, 204)
+        print(f"[경고알림] 전송 {'성공' if ok else '실패('+str(resp.status_code)+')'}")
+        return ok
+    except Exception as e:
+        print(f"[경고알림] 전송 오류: {e}")
+        return False
+
+
 def send(comp_result, failures, dashboard_path=None):
     url = _webhook()
     if not url:
