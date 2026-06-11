@@ -41,6 +41,7 @@ def all_tickers(sectors, themes):
     t = set()
     t.add(sectors["benchmarks"]["us"])
     t.add(sectors["benchmarks"]["kr"])
+    t.add("069500.KS")  # 시장 게이트용 KODEX200 (200일선 판정, leader-radar-kr와 동일 기준)
     for v in sectors.get("us", {}).values():
         t.add(v)
     for v in sectors.get("kr", {}).values():

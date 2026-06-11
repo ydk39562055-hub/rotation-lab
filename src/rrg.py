@@ -54,17 +54,31 @@ def rrg_coords(asset_close, bench_close):
 
 
 def _basket_close(prices, tickers):
-    """테마 바스켓: 구성종목 종가를 시작=100으로 정규화해 동일가중 평균."""
+    """테마 바스켓: 구성종목 종가를 '공통 시작일'=100으로 정규화해 동일가중 평균.
+
+    구성종목마다 데이터 시작일이 다르면, 각자 자기 첫날을 100으로 잡아 평균할 때
+    뒤늦게 합류한 종목이 기존 종목과 다른 레벨에서 100으로 끼어들어 인위적 점프가
+    생기고 RRG z-score가 왜곡된다. 이를 막기 위해 '모든 종목이 존재하는 공통 구간'의
+    첫날을 기준(=100)으로 모든 종목을 함께 재정규화한 뒤 평균한다.
+    """
     cols = []
     for t in tickers:
         df = prices.get(t)
         if df is None or df["close"].dropna().empty:
             continue
-        s = df["close"].dropna()
-        cols.append((s / s.iloc[0]) * 100.0)
+        cols.append(df["close"].dropna().rename(t))
     if not cols:
         return None
-    basket = pd.concat(cols, axis=1).mean(axis=1)
+
+    aligned = pd.concat(cols, axis=1)
+    common = aligned.dropna()   # 모든 종목이 동시에 존재하는 가장 긴 공통 구간
+    if common.empty or len(common.columns) == 0:
+        return None
+
+    base = common.iloc[0]                       # 공통 첫날의 각 종목 종가
+    base = base.replace(0, np.nan)
+    rebased = common.div(base) * 100.0          # 모든 종목을 같은 날 100으로 재정규화
+    basket = rebased.mean(axis=1)
     return basket.dropna()
 
 

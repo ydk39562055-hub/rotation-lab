@@ -46,28 +46,39 @@ def _tag(r):
     return ""
 
 
-def _table(rows, scope="theme"):
-    head = """<tr>
-      <th>#</th><th class="l">이름</th>
+def _table(rows, scope="theme", gate_on=False):
+    # breadth는 멤버가 여러 개인 테마에서만 의미 있음(섹터는 ETF 1개라 0/100뿐) → 섹터 탭에선 숨김
+    show_breadth = (scope == "theme")
+    breadth_th = '<th title="구성종목 중 52주 신고가 −15% 이내 비율">강세폭</th>' if show_breadth else ""
+    head = f"""<tr>
+      <th>#</th><th class="l">이름</th><th class="l">판정</th>
       <th>RS5</th><th>RS21</th><th>RS63</th>
-      <th>breadth</th><th>거래대금</th>
-      <th>전일</th><th>5일전</th><th class="l">태그</th></tr>"""
+      {breadth_th}<th>거래대금</th>
+      <th>전일</th><th>5일전</th><th class="l">행동</th></tr>"""
     body = []
     for r in rows:
-        cls = "rot-row" if r.get("rotation") else ""
+        v = r.get("verdict", {})
+        vkey = v.get("key") or "none"
+        flags = " ".join(v.get("flags", []))
+        flags_html = f' <span class="flags">{flags}</span>' if flags else ""
+        verdict_html = f'{v.get("emoji","—")} <b>{v.get("name","")}</b>{flags_html}'
+        action = v.get("action", "")
+        if gate_on and vkey in ("lead", "pull", "recover"):
+            action = "(보류) " + action
         etf = f'<span class="etf">{r["etf"]}</span>' if r.get("etf") else ""
         nm = r['name'].replace("'", "")
-        body.append(f"""<tr class="{cls}">
+        breadth_td = f"<td>{_fmt_pct(r['breadth'])}</td>" if show_breadth else ""
+        body.append(f"""<tr class="v-{vkey}">
           <td class="rk">{r['rank']}</td>
           <td class="l name clk" onclick="gotoRRG('{scope}','{nm}')" title="누르면 로테이션맵에서 보기">{r['name']} <span class="cnt">{r.get('n','')}</span> {etf}</td>
+          <td class="l vd">{verdict_html}</td>
           <td>{_fmt_rs(r['rs5'])}</td>
           <td>{_fmt_rs(r['rs21'])}</td>
           <td>{_fmt_rs(r['rs63'])}</td>
-          <td>{_fmt_pct(r['breadth'])}</td>
-          <td>{_fmt_flow(r['flow'])}</td>
+          {breadth_td}<td>{_fmt_flow(r['flow'])}</td>
           <td>{_fmt_delta(r.get('delta1'))}</td>
           <td>{_fmt_delta(r.get('delta5'))}</td>
-          <td class="l">{_tag(r)}</td></tr>""")
+          <td class="l act">{action}</td></tr>""")
     return f'<table class="rank"><thead>{head}</thead><tbody>{"".join(body)}</tbody></table>'
 
 
@@ -83,9 +94,21 @@ def _rrg_payload(rrg):
 def build(comp_result, rrg, failures):
     date = comp_result["date"]
     bm = comp_result["benchmarks"]
+    gate = comp_result.get("gate", {"us": False, "kr": False})
+    conclusion = comp_result.get("conclusion", [])
     fail_html = (f'<span class="fail">수집 실패 {len(failures)}: {", ".join(failures)}</span>'
                  if failures else '<span class="ok">수집 실패 없음</span>')
     rrg_json = json.dumps(_rrg_payload(rrg), ensure_ascii=False)
+
+    gate_html = ""
+    if gate["us"]:
+        gate_html += '<div class="gate">⛔ 미국 시장 약세 (SPY 200일선 아래) — 신규 진입 전체 보류</div>'
+    if gate["kr"]:
+        gate_html += '<div class="gate">⛔ 한국 시장 약세 (KODEX200 200일선 아래) — 한국 신규 보류</div>'
+    concl_lines = "".join(f'<div class="cl">{l}</div>' for l in conclusion)
+    concl_html = (f'<div class="concl"><div class="ct">📋 오늘의 결론</div>{concl_lines}'
+                  '<div class="legend2">판정: 🟢주도지속 · 🟡건강한눌림 · 🟠꺾임의심 · 🔵회복진행 · '
+                  '⚪반짝반등 · ⚫소외 &nbsp;|&nbsp; ⚠️쏠림(한두종목착시) · 🔄(거래대금 유입) · ↗(순위 급부상)</div></div>')
 
     return f"""<!doctype html>
 <html lang="ko"><head>
@@ -125,6 +148,22 @@ table.rank{{width:100%;border-collapse:collapse;font-size:13px;
 .pos{{color:var(--pos);font-weight:600;}} .neg{{color:var(--neg);font-weight:600;}}
 .flat{{color:var(--flat);}} .na{{color:#4a5160;}}
 tr.rot-row{{background:rgba(202,160,36,.10);}}
+.rank .vd{{font-size:12.5px;white-space:nowrap;}}
+.rank .vd b{{font-weight:700;}}
+.rank .flags{{font-size:10.5px;color:#caa024;}}
+.rank .act{{color:var(--mut);font-size:11.5px;white-space:nowrap;}}
+tr.v-lead{{background:rgba(39,196,152,.12);}}
+tr.v-pull{{background:rgba(202,160,36,.08);}}
+tr.v-break{{background:rgba(224,160,32,.07);}}
+tr.v-recover{{background:rgba(80,140,255,.08);}}
+.gate{{background:rgba(255,93,108,.15);border:1px solid #5a2730;color:#ff8a96;
+  border-radius:10px;padding:11px 14px;margin:10px 0;font-weight:700;font-size:14px;}}
+.concl{{background:#11151c;border:1px solid var(--line);border-left:4px solid #4a7;
+  border-radius:10px;padding:13px 15px;margin:10px 0 18px;}}
+.concl .ct{{font-size:13px;color:var(--mut);font-weight:700;margin-bottom:7px;}}
+.concl .cl{{font-size:14px;line-height:1.7;font-weight:600;}}
+.concl .legend2{{font-size:11px;color:var(--mut);margin-top:9px;
+  border-top:1px solid var(--line);padding-top:8px;line-height:1.6;}}
 .badge.rot{{background:rgba(202,160,36,.18);color:var(--rot);padding:2px 7px;
   border-radius:6px;font-size:11px;font-weight:700;}}
 .note{{color:var(--mut);font-size:12px;margin:6px 0 16px;}}
@@ -152,6 +191,9 @@ tr.rot-row{{background:rgba(202,160,36,.10);}}
   {fail_html}
 </div>
 
+{gate_html}
+{concl_html}
+
 <div class="tabs">
   <div class="tab on" data-v="v1">🔥 테마 랭킹</div>
   <div class="tab" data-v="v2">🇺🇸 섹터(미국)</div>
@@ -160,11 +202,11 @@ tr.rot-row{{background:rgba(202,160,36,.10);}}
 </div>
 
 <div id="v1" class="view on">
-  <div class="note">테마 RS = 구성종목 RS의 <b>중앙값</b> · breadth = 52주 신고가 −15% 이내 비율 · 거래대금 = 5일/60일 · 🔄 = RS63 하위50% & RS5 상위20%</div>
-  {_table(comp_result['themes'], 'theme')}
+  <div class="note">테마 RS = 구성종목 RS의 <b>중앙값</b> · 강세폭 = 52주 신고가 −15% 이내 종목 비율(동네 전체가 가나 체크) · 거래대금 = 5일/60일 평균 비율 · 판정·행동은 위 '오늘의 결론' 범례 참고</div>
+  {_table(comp_result['themes'], 'theme', gate['us'])}
 </div>
-<div id="v2" class="view">{_table(comp_result['us'], 'us')}</div>
-<div id="v3" class="view">{_table(comp_result['kr'], 'kr')}</div>
+<div id="v2" class="view">{_table(comp_result['us'], 'us', gate['us'])}</div>
+<div id="v3" class="view">{_table(comp_result['kr'], 'kr', gate['kr'])}</div>
 
 <div id="v4" class="view">
   <div class="note">색: <b style="color:#27c498">주도</b>(우상·강함★) · <b style="color:#508cff">회복</b>(좌상·살아남) · <b style="color:#e0a020">약화</b>(우하·식는중) · <b style="color:#ff5d6c">부진</b>(좌하·약함) · 꼬리=최근 8주 궤적 · <b>점/선을 누르면 그것만 강조+이름표시</b>, 빈곳 더블클릭=전체 · 돈은 시계방향</div>

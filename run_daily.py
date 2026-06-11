@@ -31,7 +31,8 @@ def publish(dashboard_path):
         print("[배포] git 저장소 아님 → index.html만 갱신")
         return
     try:
-        subprocess.run(["git", "-C", HERE, "add", "index.html"], check=True, capture_output=True)
+        subprocess.run(["git", "-C", HERE, "add", "index.html", "strong_themes.json"],
+                       check=True, capture_output=True)
         subprocess.run(["git", "-C", HERE, "commit", "-m", f"update {datetime.now():%Y-%m-%d %H:%M}"],
                        capture_output=True, text=True)
         r = subprocess.run(["git", "-C", HERE, "push"], capture_output=True, text=True)

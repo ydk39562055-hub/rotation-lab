@@ -97,10 +97,12 @@ def compute_sectors(prices, mapping, bench_rets):
         df = prices.get(tk)
         if rs is None or df is None:
             continue
+        b = _breadth_one(df)
+        b = 0.0 if b is None or (isinstance(b, float) and np.isnan(b)) else b
         rows.append({
             "name": name, "tickers": [tk], "n": 1,
             "rs5": rs["rs5"], "rs21": rs["rs21"], "rs63": rs["rs63"],
-            "breadth": (_breadth_one(df) or 0) * 100.0,
+            "breadth": b * 100.0,
             "flow": _flow_one(df),
             "composite": _composite(rs),
         })
@@ -164,6 +166,105 @@ def _apply_ranks_and_signals(rows):
     return rows
 
 
+# ── 판정(verdict) 엔진 ───────────────────────────────────────────────
+VERDICTS = {
+    "lead":    {"emoji": "🟢", "name": "주도지속",   "action": "1순위 — 이 테마에서 종목 탐색"},
+    "pull":    {"emoji": "🟡", "name": "건강한눌림", "action": "진입 대기 — RS5 양전환 시 1순위 승격"},
+    "break":   {"emoji": "🟠", "name": "꺾임의심",   "action": "보유분 경계 — 신규 금지"},
+    "recover": {"emoji": "🔵", "name": "회복진행",   "action": "관찰 리스트 — 3일 연속 유지 시 후보"},
+    "blip":    {"emoji": "⚪", "name": "반짝반등",   "action": "무시 (가짜 반등 추정)"},
+    "laggard": {"emoji": "⚫", "name": "소외",       "action": "무시"},
+}
+
+
+def classify(row, allow_breadth_corr=True):
+    """RS63/RS21/RS5 부호로 기본 분류 후 breadth·거래대금·순위모멘텀 보정."""
+    rs5, rs21, rs63 = row.get("rs5"), row.get("rs21"), row.get("rs63")
+    if any(v is None or (isinstance(v, float) and np.isnan(v)) for v in (rs5, rs21, rs63)):
+        return {"key": None, "emoji": "—", "name": "판정불가", "action": "데이터 부족", "flags": []}
+
+    # 1. 기본 트리
+    if rs63 >= 0:
+        key = "lead" if rs5 >= 0 else ("pull" if rs21 >= 0 else "break")
+    else:
+        if rs5 >= 0:
+            key = "recover" if rs21 >= 0 else "blip"
+        else:
+            key = "laggard"
+
+    flags = []
+    # 2a. breadth 보정 (멤버 여러 개인 테마만)
+    breadth = row.get("breadth")
+    if allow_breadth_corr and breadth is not None and not np.isnan(breadth) and breadth < 25:
+        flags.append("⚠️쏠림")
+        if key == "lead":
+            key = "pull"
+        elif key == "pull":
+            key = "break"
+    # 2b. 거래대금 보정
+    flow = row.get("flow")
+    if flow is not None and not np.isnan(flow):
+        if key == "blip" and flow >= 1.2:
+            key = "recover"
+            flags.append("🔄")
+        elif key == "recover" and flow <= 0.9:
+            key = "blip"
+    # 2c. 순위 모멘텀
+    d5 = row.get("delta5")
+    if d5 is not None and d5 >= 3:
+        flags.append("↗급부상")
+
+    v = VERDICTS[key]
+    return {"key": key, "emoji": v["emoji"], "name": v["name"], "action": v["action"], "flags": flags}
+
+
+def _below_ma200(prices, ticker):
+    """현재 종가가 200일 이동평균 아래면 True(약세 게이트). 데이터 부족 시 None."""
+    df = prices.get(ticker)
+    if df is None:
+        return None
+    s = df["close"].dropna()
+    if len(s) < 200:
+        return None
+    return bool(s.iloc[-1] < s.iloc[-200:].mean())
+
+
+def _conclusion(themes_rows, gate_us, prev_vd):
+    """대시보드 최상단 '오늘의 결론' 3줄 생성."""
+    def names(keys):
+        return [r["name"] for r in themes_rows if r["verdict"]["key"] in keys]
+    greens, yellows, blues = names(["lead"]), names(["pull"]), names(["recover"])
+
+    # 1줄: 게이트 + 주도
+    if gate_us:
+        line1 = "⛔ 시장 약세(SPY 200일선 아래) — 신규 진입 전체 보류"
+    elif greens:
+        line1 = "🟢 주도 지속: " + ", ".join(greens)
+    else:
+        line1 = "주도 테마 휴식 중 — 신규 진입 자리 없음"
+
+    # 2줄: 눌림 대기 + 회복 관찰
+    parts = []
+    if yellows:
+        parts.append("🟡 눌림 대기: " + ", ".join(yellows))
+    if blues:
+        parts.append("🔵 회복 관찰: " + ", ".join(blues))
+    line2 = " · ".join(parts) if parts else "눌림·회복 후보 없음"
+
+    # 3줄: 전일 대비 판정 변화 (첫날은 생략)
+    lines = [line1, line2]
+    if prev_vd:
+        changes = []
+        for r in themes_rows:
+            old = prev_vd.get(r["name"])
+            new = r["verdict"]["emoji"]
+            if old and new and old != new:
+                changes.append(f"{r['name']} {old}→{new}")
+        if changes:
+            lines.append("변화: " + ", ".join(changes))
+    return lines
+
+
 def _load_history():
     path = os.path.join(HIST, "rankings.json")
     if os.path.exists(path):
@@ -211,13 +312,32 @@ def run(prices, sectors, themes):
     _deltas(us_rows, "us", hist, today)
     _deltas(kr_rows, "kr", hist, today)
 
-    # 오늘 순위 저장(다음 실행의 ▲▼ 비교용)
+    # 판정 부여 (테마=breadth 보정 적용, 섹터=ETF 1개라 미적용)
+    for r in themes_rows:
+        r["verdict"] = classify(r, allow_breadth_corr=(r.get("n", 1) > 1))
+    for r in us_rows + kr_rows:
+        r["verdict"] = classify(r, allow_breadth_corr=False)
+
+    # 시장 게이트
+    gate = {"us": bool(_below_ma200(prices, "SPY")),
+            "kr": bool(_below_ma200(prices, "069500.KS"))}
+
+    # 전일 판정(변화 비교용) → 결론 생성
+    dates = sorted(d for d in hist.keys() if d < today)
+    prev_vd = hist.get(dates[-1], {}).get("vd_theme") if dates else None
+    conclusion = _conclusion(themes_rows, gate["us"], prev_vd)
+
+    # 오늘 순위 + 판정 저장(다음 실행 비교용)
     hist[today] = {
         "theme": [r["name"] for r in themes_rows],
         "us": [r["name"] for r in us_rows],
         "kr": [r["name"] for r in kr_rows],
+        "vd_theme": {r["name"]: r["verdict"]["emoji"] for r in themes_rows},
     }
     _save_history(hist)
+
+    # 퍼널 연동: 🟢=go, 🟡+🔵=watch 테마의 구성종목 → output/strong_themes.json
+    _write_strong_themes(today, themes_rows)
 
     return {
         "date": today,
@@ -225,7 +345,25 @@ def run(prices, sectors, themes):
         "us": us_rows,
         "kr": kr_rows,
         "benchmarks": sectors["benchmarks"],
+        "gate": gate,
+        "conclusion": conclusion,
     }
+
+
+def _write_strong_themes(today, themes_rows):
+    go, watch = [], []
+    for r in themes_rows:
+        k = r["verdict"]["key"]
+        if k == "lead":
+            go.extend(r.get("tickers", []))
+        elif k in ("pull", "recover"):
+            watch.extend(r.get("tickers", []))
+    payload = {"date": today,
+               "go": sorted(set(go)),
+               "watch": sorted(set(watch))}
+    # repo 루트에 저장 → publish()가 GitHub Pages로 푸시 → leader-radar가 URL로 읽음
+    with open(os.path.join(HERE, "strong_themes.json"), "w", encoding="utf-8") as f:
+        json.dump(payload, f, ensure_ascii=False, indent=1)
 
 
 if __name__ == "__main__":
