@@ -3,29 +3,34 @@
  "go": [
   "000660.KS",
   "005930.KS",
-  "BAC",
-  "C",
-  "GS",
-  "JPM",
-  "MS",
-  "MU"
- ],
- "watch": [
   "AMD",
   "AVGO",
+  "BAC",
+  "C",
   "CRWD",
   "FTNT",
-  "GPCR",
+  "GS",
   "INTC",
-  "LLY",
+  "JPM",
   "MRVL",
+  "MS",
+  "MU",
   "NET",
   "NVDA",
-  "NVO",
   "PANW",
   "S",
   "TSM",
-  "VKTX",
   "ZS"
+ ],
+ "watch": [
+  "ETN",
+  "GEV",
+  "GLW",
+  "IONQ",
+  "NVT",
+  "QBTS",
+  "QUBT",
+  "RGTI",
+  "VRT"
  ]
 }
