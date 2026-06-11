@@ -2,12 +2,17 @@
 """
 RS·breadth·거래대금흐름·랭킹·로테이션신호 계산.
 
-RS(기간) = 자산 수익률(기간) − 벤치마크 수익률(기간)   (기간 = 5/21/63 거래일)
-종합점수 = 0.5*RS63 + 0.3*RS21 + 0.2*RS5
+RS(기간) = 자산 수익률(기간) − 벤치마크 수익률(기간)   (기간 = 21/63/126 거래일)
+종합점수 = 0.5*RS126 + 0.3*RS63 + 0.2*RS21
 테마 RS = 구성종목 RS의 '중앙값'(평균 아님, 한두 종목 왜곡 방지)
 breadth = [52주 신고가 대비 -15% 이내] 종목 비율(%)
 거래대금흐름 = (최근5일 평균 거래대금 / 최근60일 평균 거래대금) 의 중앙값
-로테이션 후보 = RS63 순위 하위 50% AND RS5 순위 상위 20%
+로테이션 후보 = RS126 순위 하위 50% AND RS21 순위 상위 20%
+
+★ 2026-06-12 창 교체 (5·21·63 → 21·63·126), 백테스트 근거(backtest_windows.py):
+  10년 주간 516시점·다음날 진입 비교에서 혼합 장기(126·63·21)가 미·한 섹터 모두
+  옛 창(63·21·5)을 전 지평에서 이김 (미 126d: 스프레드 -0.2→+0.77%, IC +0.067).
+  5일 항은 노이즈로 순위만 흔들고 예측력 없음 → 제거. 모멘텀은 3~12개월 창에서만 실재.
 """
 import os, json
 from datetime import datetime
@@ -17,7 +22,7 @@ from fetch import theme_members
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 HIST = os.path.join(HERE, "data", "history")
-PERIODS = {"rs5": 5, "rs21": 21, "rs63": 63}
+PERIODS = {"rs21": 21, "rs63": 63, "rs126": 126}
 W63, W21, W5, W60, W252 = 63, 21, 5, 60, 252
 
 
@@ -79,7 +84,7 @@ def _flow_one(df):
 
 
 def _composite(rs):
-    vals = [rs.get("rs63"), rs.get("rs21"), rs.get("rs5")]
+    vals = [rs.get("rs126"), rs.get("rs63"), rs.get("rs21")]
     if any(v is None or np.isnan(v) for v in vals):
         return np.nan
     return 0.5 * vals[0] + 0.3 * vals[1] + 0.2 * vals[2]
@@ -101,7 +106,7 @@ def compute_sectors(prices, mapping, bench_rets):
         b = 0.0 if b is None or (isinstance(b, float) and np.isnan(b)) else b
         rows.append({
             "name": name, "tickers": [tk], "n": 1,
-            "rs5": rs["rs5"], "rs21": rs["rs21"], "rs63": rs["rs63"],
+            "rs21": rs["rs21"], "rs63": rs["rs63"], "rs126": rs["rs126"],
             "breadth": b * 100.0,
             "flow": _flow_one(df),
             "composite": _composite(rs),
@@ -120,18 +125,18 @@ def compute_themes(prices, themes, bench_rets):
         members = [t for t in lst if t in prices]
         if not members:
             continue
-        rs5 = _nanmedian([ticker_rs(prices, t, bench_rets)["rs5"] for t in members])
         rs21 = _nanmedian([ticker_rs(prices, t, bench_rets)["rs21"] for t in members])
         rs63 = _nanmedian([ticker_rs(prices, t, bench_rets)["rs63"] for t in members])
+        rs126 = _nanmedian([ticker_rs(prices, t, bench_rets)["rs126"] for t in members])
         # breadth = 0/1 지표라 '비율'이 의미 — 유효 종목들의 평균(%)을 그대로 쓴다
         breadth_vals = [b for b in (_breadth_one(prices[t]) for t in members)
                         if b is not None and not np.isnan(b)]
         breadth = 100.0 * float(np.mean(breadth_vals)) if breadth_vals else np.nan
         flow = _nanmedian([_flow_one(prices[t]) for t in members])
-        comp = _composite({"rs5": rs5, "rs21": rs21, "rs63": rs63})
+        comp = _composite({"rs21": rs21, "rs63": rs63, "rs126": rs126})
         rows.append({
             "name": name, "tickers": members, "n": len(members), "etf": etf,
-            "rs5": rs5, "rs21": rs21, "rs63": rs63,
+            "rs21": rs21, "rs63": rs63, "rs126": rs126,
             "breadth": breadth, "flow": flow, "composite": comp,
         })
     return rows
@@ -153,18 +158,18 @@ def _apply_ranks_and_signals(rows):
     if not rows:
         return rows
     comp_rank = _rank_by(rows, "composite")
-    rs63_rank = _rank_by(rows, "rs63")
-    rs5_rank = _rank_by(rows, "rs5")
+    rs126_rank = _rank_by(rows, "rs126")
+    rs21_rank = _rank_by(rows, "rs21")
     n = len(rows)
     # 표본이 5개 미만이면 '하위 50% + 상위 20%' 조합이 무의미 → 로테이션 판정 생략
     rotation_enabled = n >= 5
     top_k = max(1, round(n * 0.2))
     for i, r in enumerate(rows):
         r["rank"] = comp_rank[i]
-        # 로테이션 후보: RS63 하위 50% AND RS5 상위 20%
-        bottom_half_63 = rs63_rank[i] > n * 0.5
-        top20_5 = rs5_rank[i] <= top_k
-        r["rotation"] = bool(rotation_enabled and bottom_half_63 and top20_5)
+        # 로테이션 후보: RS126(장기) 하위 50% AND RS21(단기) 상위 20%
+        bottom_half_l = rs126_rank[i] > n * 0.5
+        top20_s = rs21_rank[i] <= top_k
+        r["rotation"] = bool(rotation_enabled and bottom_half_l and top20_s)
     rows.sort(key=lambda r: r["rank"])
     return rows
 
@@ -181,17 +186,17 @@ VERDICTS = {
 
 
 def classify(row, allow_breadth_corr=True):
-    """RS63/RS21/RS5 부호로 기본 분류 후 breadth·거래대금·순위모멘텀 보정."""
-    rs5, rs21, rs63 = row.get("rs5"), row.get("rs21"), row.get("rs63")
-    if any(v is None or (isinstance(v, float) and np.isnan(v)) for v in (rs5, rs21, rs63)):
+    """RS126(장기)/RS63(중기)/RS21(단기) 부호로 기본 분류 후 breadth·거래대금·순위모멘텀 보정."""
+    rs21, rs63, rs126 = row.get("rs21"), row.get("rs63"), row.get("rs126")
+    if any(v is None or (isinstance(v, float) and np.isnan(v)) for v in (rs21, rs63, rs126)):
         return {"key": None, "emoji": "—", "name": "판정불가", "action": "데이터 부족", "flags": []}
 
-    # 1. 기본 트리
-    if rs63 >= 0:
-        key = "lead" if rs5 >= 0 else ("pull" if rs21 >= 0 else "break")
+    # 1. 기본 트리 (장기 추세가 기준, 단기·중기로 국면 구분)
+    if rs126 >= 0:
+        key = "lead" if rs21 >= 0 else ("pull" if rs63 >= 0 else "break")
     else:
-        if rs5 >= 0:
-            key = "recover" if rs21 >= 0 else "blip"
+        if rs21 >= 0:
+            key = "recover" if rs63 >= 0 else "blip"
         else:
             key = "laggard"
 

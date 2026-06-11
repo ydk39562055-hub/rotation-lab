@@ -34,9 +34,9 @@ def _top_lines(rows, k=5):
         if d:
             arrow = f" ({'▲' if d > 0 else '▼'}{abs(d)})"
         rot = " 🔄" if r.get("rotation") else ""
-        rs63 = r.get("rs63")
-        rs63s = "—" if rs63 is None or rs63 != rs63 else f"{rs63:+.1f}"
-        out.append(f"`{r['rank']}.` {r['name']}{arrow}{rot}  · RS63 {rs63s}")
+        rs126 = r.get("rs126")
+        rs126s = "—" if rs126 is None or rs126 != rs126 else f"{rs126:+.1f}"
+        out.append(f"`{r['rank']}.` {r['name']}{arrow}{rot}  · RS126 {rs126s}")
     return "\n".join(out) if out else "_데이터 없음_"
 
 

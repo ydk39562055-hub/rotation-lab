@@ -52,7 +52,7 @@ def _table(rows, scope="theme", gate_on=False):
     breadth_th = '<th title="구성종목 중 52주 신고가 −15% 이내 비율">강세폭</th>' if show_breadth else ""
     head = f"""<tr>
       <th>#</th><th class="l">이름</th><th class="l">판정</th>
-      <th>RS5</th><th>RS21</th><th>RS63</th>
+      <th title="최근 1개월 상대강도">RS21</th><th title="최근 3개월 상대강도">RS63</th><th title="최근 6개월 상대강도">RS126</th>
       {breadth_th}<th>거래대금</th>
       <th>전일</th><th>5일전</th><th class="l">행동</th></tr>"""
     body = []
@@ -72,9 +72,9 @@ def _table(rows, scope="theme", gate_on=False):
           <td class="rk">{r['rank']}</td>
           <td class="l name clk" onclick="gotoRRG('{scope}','{nm}')" title="누르면 로테이션맵에서 보기">{r['name']} <span class="cnt">{r.get('n','')}</span> {etf}</td>
           <td class="l vd">{verdict_html}</td>
-          <td>{_fmt_rs(r['rs5'])}</td>
           <td>{_fmt_rs(r['rs21'])}</td>
           <td>{_fmt_rs(r['rs63'])}</td>
+          <td>{_fmt_rs(r['rs126'])}</td>
           {breadth_td}<td>{_fmt_flow(r['flow'])}</td>
           <td>{_fmt_delta(r.get('delta1'))}</td>
           <td>{_fmt_delta(r.get('delta5'))}</td>
@@ -186,7 +186,8 @@ tr.v-recover{{background:rgba(80,140,255,.08);}}
 <h1>📡 로테이션 랩 <span style="font-size:13px;color:var(--mut);font-weight:500;letter-spacing:1px">ROTATION LAB</span></h1>
 <div class="meta">
   기준일 <b>{date}</b> · 벤치마크 미국 {bm['us']} / 한국 {bm['kr']}<br>
-  RS = 자산수익률 − 벤치마크수익률 (×100, 거래일 5/21/63) · 종합점수 = 0.5·RS63+0.3·RS21+0.2·RS5<br>
+  RS = 자산수익률 − 벤치마크수익률 (×100, 거래일 21/63/126 = 1/3/6개월) · 종합점수 = 0.5·RS126+0.3·RS63+0.2·RS21<br>
+  <span style="color:var(--mut)">판정 창 = 백테스트 검증 구간(3~12개월 모멘텀)으로 2026-06-12 교체 — 일간 노이즈(5일 항) 제거</span><br>
   {fail_html}
 </div>
 
