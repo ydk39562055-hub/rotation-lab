@@ -116,12 +116,13 @@ def build(comp_result, rrg, failures):
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>로테이션 랩 · {date}</title>
 <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<link rel="preconnect" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
 <style>
-:root{{--bg:#0b0d11;--panel:#13161c;--line:#222732;--txt:#e6e8ec;--mut:#8b93a1;
-  --pos:#27c498;--neg:#ff5d6c;--flat:#7b8494;--rot:#caa024;}}
+:root{{--bg:#0f1115;--bar:#0b0d11;--panel:#161a21;--panel2:#1c2029;--line:#262b36;--txt:#e8eaee;--mut:#8b93a3;--mut2:#5d6470;--accent:#6ea8fe;
+  --pos:#3fae6b;--neg:#e5544b;--flat:#7b8494;--rot:#e0a82e;}}
 *{{box-sizing:border-box}}
 body{{margin:0;background:var(--bg);color:var(--txt);
-  font-family:Pretendard,system-ui,-apple-system,sans-serif;}}
+  font-family:'Pretendard Variable','Pretendard','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}}
 .wrap{{max-width:960px;margin:0 auto;padding:16px;}}
 h1{{font-size:19px;margin:2px 0;}}
 .meta{{color:var(--mut);font-size:12.5px;margin:6px 0 14px;line-height:1.7;}}
