@@ -1,0 +1,26 @@
+name: rotation-daily
+on:
+  schedule:
+    - cron: '0 22 * * *'   # 22:00 UTC = 미 장 마감(여름20·겨울21) 후, 한국 오전 7시 (DST 무관)
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - name: git identity
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "bot@users.noreply.github.com"
+      - name: 로테이션 파이프라인 (fetch->compute->rrg->report->publish)
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          mkdir -p data
+          python run_daily.py
