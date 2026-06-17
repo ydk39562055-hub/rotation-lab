@@ -1,8 +1,11 @@
 {
- "date": "2026-06-16",
+ "date": "2026-06-17",
  "go": [
   "000660.KS",
   "005930.KS",
+  "034020.KS",
+  "042700.KS",
+  "329180.KS",
   "AMD",
   "AVGO",
   "BAC",
@@ -10,7 +13,10 @@
   "CRWD",
   "DLR",
   "EQIX",
+  "ETN",
   "FTNT",
+  "GEV",
+  "GLW",
   "GS",
   "INTC",
   "JPM",
@@ -19,20 +25,12 @@
   "MU",
   "NET",
   "NVDA",
+  "NVT",
   "PANW",
   "S",
   "TSM",
+  "VRT",
   "ZS"
  ],
- "watch": [
-  "ETN",
-  "GEV",
-  "GLW",
-  "IONQ",
-  "NVT",
-  "QBTS",
-  "QUBT",
-  "RGTI",
-  "VRT"
- ]
+ "watch": []
 }
