@@ -1,5 +1,5 @@
 {
- "date": "2026-06-29",
+ "date": "2026-06-30",
  "go": [
   "000660.KS",
   "005930.KS",
@@ -8,8 +8,6 @@
   "BAC",
   "C",
   "CRWD",
-  "DLR",
-  "EQIX",
   "ETN",
   "FTNT",
   "GEV",
@@ -30,9 +28,15 @@
   "ZS"
  ],
  "watch": [
+  "AMBA",
   "GPCR",
+  "ISRG",
   "LLY",
   "NVO",
+  "ROK",
+  "SYM",
+  "TER",
+  "TSLA",
   "VKTX"
  ]
 }
