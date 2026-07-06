@@ -118,8 +118,8 @@ def build(comp_result, rrg, failures):
 <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
 <link rel="preconnect" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
 <style>
-:root{{--bg:#0f1115;--bar:#0b0d11;--panel:#161a21;--panel2:#1c2029;--line:#262b36;--txt:#e8eaee;--mut:#8b93a3;--mut2:#5d6470;--accent:#6ea8fe;
-  --pos:#3fae6b;--neg:#e5544b;--flat:#7b8494;--rot:#e0a82e;}}
+:root{{--bg:#1a1512;--bar:#151009;--panel:#221b15;--panel2:#241c15;--line:#2b231c;--txt:#e8dcc8;--mut:#a08f7d;--mut2:#8a7a68;--accent:#c89468;
+  --pos:#8fb381;--neg:#c97a62;--flat:#8a7a68;--rot:#cfa75e;}}
 *{{box-sizing:border-box}}
 body{{margin:0;background:var(--bg);color:var(--txt);
   font-family:'Pretendard Variable','Pretendard','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}}
@@ -131,7 +131,7 @@ h1{{font-size:19px;margin:2px 0;}}
   background:var(--bg);padding:8px 0;z-index:5;}}
 .tab{{padding:8px 13px;border-radius:9px;background:var(--panel);color:var(--mut);
   font-size:13.5px;font-weight:600;cursor:pointer;border:1px solid var(--line);}}
-.tab.on{{color:var(--txt);border-color:#3a4a6a;background:#1a2030;}}
+.tab.on{{color:var(--txt);border-color:#c89468;background:#32281e;}}
 .view{{display:none;}} .view.on{{display:block;}}
 table.rank{{width:100%;border-collapse:collapse;font-size:13px;
   font-variant-numeric:tabular-nums;}}
@@ -142,43 +142,43 @@ table.rank{{width:100%;border-collapse:collapse;font-size:13px;
 .rank .rk{{color:var(--mut);font-weight:700;}}
 .rank .name{{font-weight:600;}}
 .rank td.clk{{cursor:pointer;}}
-.rank td.clk:hover{{background:#181d27;text-decoration:underline;text-decoration-color:#3a4a6a;}}
+.rank td.clk:hover{{background:#251d15;text-decoration:underline;text-decoration-color:#c89468;}}
 .rank .cnt{{color:var(--mut);font-size:11px;font-weight:400;}}
-.rank .etf{{color:#6d7b95;font-size:10.5px;font-weight:600;background:#1a2030;
+.rank .etf{{color:#a08f7d;font-size:10.5px;font-weight:600;background:#32281e;
   border-radius:5px;padding:1px 5px;margin-left:3px;}}
 .pos{{color:var(--pos);font-weight:600;}} .neg{{color:var(--neg);font-weight:600;}}
-.flat{{color:var(--flat);}} .na{{color:#4a5160;}}
+.flat{{color:var(--flat);}} .na{{color:#8a7a68;}}
 .rank .vd{{font-size:12.5px;white-space:nowrap;}}
 .rank .vd b{{font-weight:700;}}
-.rank .flags{{font-size:10.5px;color:#caa024;}}
+.rank .flags{{font-size:10.5px;color:#cfa75e;}}
 .rank .act{{color:var(--mut);font-size:11.5px;white-space:nowrap;}}
-tr.v-lead{{background:rgba(39,196,152,.12);}}
-tr.v-pull{{background:rgba(202,160,36,.08);}}
-tr.v-break{{background:rgba(224,160,32,.07);}}
-tr.v-recover{{background:rgba(80,140,255,.08);}}
-.gate{{background:rgba(255,93,108,.15);border:1px solid #5a2730;color:#ff8a96;
+tr.v-lead{{background:rgba(143,179,129,.12);}}
+tr.v-pull{{background:rgba(207,167,94,.08);}}
+tr.v-break{{background:rgba(201,122,98,.07);}}
+tr.v-recover{{background:rgba(200,148,104,.08);}}
+.gate{{background:rgba(201,122,98,.15);border:1px solid #3a2f24;color:#c97a62;
   border-radius:10px;padding:11px 14px;margin:10px 0;font-weight:700;font-size:14px;}}
-.concl{{background:#11151c;border:1px solid var(--line);border-left:4px solid #4a7;
+.concl{{background:#1a1512;border:1px solid var(--line);border-left:4px solid #8fb381;
   border-radius:10px;padding:13px 15px;margin:10px 0 18px;}}
 .concl .ct{{font-size:13px;color:var(--mut);font-weight:700;margin-bottom:7px;}}
 .concl .cl{{font-size:14px;line-height:1.7;font-weight:600;}}
 .concl .legend2{{font-size:11px;color:var(--mut);margin-top:9px;
   border-top:1px solid var(--line);padding-top:8px;line-height:1.6;}}
-.badge.rot{{background:rgba(202,160,36,.18);color:var(--rot);padding:2px 7px;
+.badge.rot{{background:rgba(207,167,94,.18);color:var(--rot);padding:2px 7px;
   border-radius:6px;font-size:11px;font-weight:700;}}
 .note{{color:var(--mut);font-size:12px;margin:6px 0 16px;}}
 .rrg-box{{background:var(--panel);border:1px solid var(--line);border-radius:12px;
   padding:8px;margin-bottom:18px;}}
 .rrg-box h3{{font-size:14px;margin:6px 8px 0;}}
-.sel{{color:#cdd3dd;font-size:13px;margin:6px 8px 8px;padding:8px 11px;
-  background:#0e1217;border:1px solid var(--line);border-radius:8px;}}
+.sel{{color:#cfc2b0;font-size:13px;margin:6px 8px 8px;padding:8px 11px;
+  background:#151009;border:1px solid var(--line);border-radius:8px;}}
 .btns{{display:flex;flex-wrap:wrap;gap:5px;margin:0 8px 8px;}}
-.chip2{{background:#161b23;color:#cdd3dd;border:1px solid #2a3340;border-radius:7px;
+.chip2{{background:#221b15;color:#cfc2b0;border:1px solid #2b231c;border-radius:7px;
   padding:4px 9px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;
   border-left-width:3px;}}
-.chip2:hover{{background:#1d2530;}}
-.chip2.on{{background:#243049;color:#fff;border-color:#4a6aa0;}}
-.chip2.all{{border-left-color:#9aa0aa;background:#202632;}}
+.chip2:hover{{background:#251d15;}}
+.chip2.on{{background:#32281e;color:#f2ebe0;border-color:#c89468;}}
+.chip2.all{{border-left-color:#a08f7d;background:#241c15;}}
 .chart{{width:100%;height:440px;}}
 .legend{{color:var(--mut);font-size:12px;margin:4px 8px 0;}}
 .foot{{color:var(--mut);font-size:11.5px;text-align:center;margin:24px 0 8px;}}
@@ -210,7 +210,7 @@ tr.v-recover{{background:rgba(80,140,255,.08);}}
 <div id="v3" class="view">{_table(comp_result['kr'], 'kr', gate['kr'])}</div>
 
 <div id="v4" class="view">
-  <div class="note">색: <b style="color:#27c498">주도</b>(우상·강함★) · <b style="color:#508cff">회복</b>(좌상·살아남) · <b style="color:#e0a020">약화</b>(우하·식는중) · <b style="color:#ff5d6c">부진</b>(좌하·약함) · 꼬리=최근 8주 궤적 · <b>점/선을 누르면 그것만 강조+이름표시</b>, 빈곳 더블클릭=전체 · 돈은 시계방향</div>
+  <div class="note">색: <b style="color:#8fb381">주도</b>(우상·강함★) · <b style="color:#c89468">회복</b>(좌상·살아남) · <b style="color:#cfa75e">약화</b>(우하·식는중) · <b style="color:#c97a62">부진</b>(좌하·약함) · 꼬리=최근 8주 궤적 · <b>점/선을 누르면 그것만 강조+이름표시</b>, 빈곳 더블클릭=전체 · 돈은 시계방향</div>
   <div class="rrg-box"><h3>테마 (기준 {bm['us']})</h3>
     <div id="rrgThemesSel" class="sel">👇 아래 버튼을 누르면 그 선 하나만 떠요</div>
     <div id="rrgThemesBtns" class="btns"></div>
@@ -262,17 +262,17 @@ function gotoRRG(scope, name){{
 }}
 function plotOne(id, items){{
   if(!items || !items.length){{
-    document.getElementById(id).innerHTML='<div style="color:#8b93a1;padding:30px">데이터 부족(구성종목을 채우면 표시됩니다)</div>';
+    document.getElementById(id).innerHTML='<div style="color:#a08f7d;padding:30px">데이터 부족(구성종목을 채우면 표시됩니다)</div>';
     return;
   }}
-  const QC={{'주도':'#27c498','회복':'#508cff','약화':'#e0a020','부진':'#ff5d6c'}};
+  const QC={{'주도':'#8fb381','회복':'#c89468','약화':'#cfa75e','부진':'#c97a62'}};
   const traces=[];
   let xs=[],ys=[];
   // 평소엔 이름표 숨김(겹쳐서 뭉개짐) → 분면별 색으로만 위치 표시. 누르면 이름·수치 뜸.
   items.forEach(it=>{{
     const x=it.tail.map(p=>p.x), y=it.tail.map(p=>p.y);
     xs=xs.concat(x); ys=ys.concat(y);
-    const col=QC[it.quadrant]||'#9aa0aa';
+    const col=QC[it.quadrant]||'#a08f7d';
     traces.push({{x:x,y:y,mode:'lines+markers',name:it.name,
       line:{{width:1.4,color:col}},
       marker:{{size:x.map((_,i)=>i===x.length-1?12:4),color:col}},
@@ -282,24 +282,24 @@ function plotOne(id, items){{
   const xmin=Math.min(98,...xs)-pad, xmax=Math.max(102,...xs)+pad;
   const ymin=Math.min(98,...ys)-pad, ymax=Math.max(102,...ys)+pad;
   const layout={{
-    paper_bgcolor:'#13161c', plot_bgcolor:'#13161c',
-    font:{{color:'#cdd3dd',size:11}}, showlegend:false,
+    paper_bgcolor:'#1a1512', plot_bgcolor:'#1a1512',
+    font:{{color:'#8a7a68',size:11}}, showlegend:false,
     margin:{{l:48,r:18,t:10,b:40}},
-    xaxis:{{title:'상대강도 (오른쪽=강함)',range:[xmin,xmax],zeroline:false,gridcolor:'#222732'}},
-    yaxis:{{title:'강도추세 (위=가속)',range:[ymin,ymax],zeroline:false,gridcolor:'#222732'}},
+    xaxis:{{title:'상대강도 (오른쪽=강함)',range:[xmin,xmax],zeroline:false,gridcolor:'#3a2f24'}},
+    yaxis:{{title:'강도추세 (위=가속)',range:[ymin,ymax],zeroline:false,gridcolor:'#3a2f24'}},
     shapes:[
-      {{type:'rect',x0:100,x1:xmax,y0:100,y1:ymax,fillcolor:'rgba(39,196,152,.07)',line:{{width:0}}}},
-      {{type:'rect',x0:100,x1:xmax,y0:ymin,y1:100,fillcolor:'rgba(255,93,108,.05)',line:{{width:0}}}},
-      {{type:'rect',x0:xmin,x1:100,y0:ymin,y1:100,fillcolor:'rgba(255,93,108,.08)',line:{{width:0}}}},
-      {{type:'rect',x0:xmin,x1:100,y0:100,y1:ymax,fillcolor:'rgba(80,140,255,.06)',line:{{width:0}}}},
-      {{type:'line',x0:100,x1:100,y0:ymin,y1:ymax,line:{{color:'#3a4150',width:1}}}},
-      {{type:'line',x0:xmin,x1:xmax,y0:100,y1:100,line:{{color:'#3a4150',width:1}}}}
+      {{type:'rect',x0:100,x1:xmax,y0:100,y1:ymax,fillcolor:'rgba(143,179,129,.07)',line:{{width:0}}}},
+      {{type:'rect',x0:100,x1:xmax,y0:ymin,y1:100,fillcolor:'rgba(207,167,94,.05)',line:{{width:0}}}},
+      {{type:'rect',x0:xmin,x1:100,y0:ymin,y1:100,fillcolor:'rgba(201,122,98,.08)',line:{{width:0}}}},
+      {{type:'rect',x0:xmin,x1:100,y0:100,y1:ymax,fillcolor:'rgba(200,148,104,.06)',line:{{width:0}}}},
+      {{type:'line',x0:100,x1:100,y0:ymin,y1:ymax,line:{{color:'#3a2f24',width:1}}}},
+      {{type:'line',x0:xmin,x1:xmax,y0:100,y1:100,line:{{color:'#3a2f24',width:1}}}}
     ],
     annotations:[
-      {{x:xmax,y:ymax,text:'주도 ★',showarrow:false,font:{{color:'#27c498',size:12}},xanchor:'right',yanchor:'top'}},
-      {{x:xmax,y:ymin,text:'약화',showarrow:false,font:{{color:'#ff5d6c',size:12}},xanchor:'right',yanchor:'bottom'}},
-      {{x:xmin,y:ymin,text:'부진',showarrow:false,font:{{color:'#ff5d6c',size:12}},xanchor:'left',yanchor:'bottom'}},
-      {{x:xmin,y:ymax,text:'회복',showarrow:false,font:{{color:'#508cff',size:12}},xanchor:'left',yanchor:'top'}}
+      {{x:xmax,y:ymax,text:'주도 ★',showarrow:false,font:{{color:'#8fb381',size:12}},xanchor:'right',yanchor:'top'}},
+      {{x:xmax,y:ymin,text:'약화',showarrow:false,font:{{color:'#cfa75e',size:12}},xanchor:'right',yanchor:'bottom'}},
+      {{x:xmin,y:ymin,text:'부진',showarrow:false,font:{{color:'#c97a62',size:12}},xanchor:'left',yanchor:'bottom'}},
+      {{x:xmin,y:ymax,text:'회복',showarrow:false,font:{{color:'#c89468',size:12}},xanchor:'left',yanchor:'top'}}
     ]
   }};
   Plotly.newPlot(id,traces,layout,{{displayModeBar:false,responsive:true}});
@@ -315,7 +315,7 @@ function plotOne(id, items){{
   function showOnly(nm){{
     const it=items.find(o=>o.name===nm); if(!it) return;
     const last=it.tail[it.tail.length-1];
-    sel.innerHTML='📍 <b>'+nm+'</b> &nbsp;·&nbsp; 분면 <b style="color:'+(QC[it.quadrant]||'#fff')+'">'+it.quadrant
+    sel.innerHTML='📍 <b>'+nm+'</b> &nbsp;·&nbsp; 분면 <b style="color:'+(QC[it.quadrant]||'#f2ebe0')+'">'+it.quadrant
       +'</b> &nbsp;·&nbsp; 상대강도 '+last.x.toFixed(1)+' / 추세 '+last.y.toFixed(1);
     Plotly.restyle(id,{{visible:items.map(o=>o.name===nm),'line.width':items.map(()=>3),opacity:items.map(()=>1)}});
     markBtn(nm);
@@ -339,7 +339,7 @@ function plotOne(id, items){{
     items.forEach(it=>{{
       const b=document.createElement('button');
       b.className='chip2'; b.dataset.nm=it.name; b.textContent=it.name;
-      b.style.borderLeftColor=(QC[it.quadrant]||'#9aa0aa');
+      b.style.borderLeftColor=(QC[it.quadrant]||'#a08f7d');
       b.onclick=function(){{ showOnly(it.name); }};
       btns.appendChild(b);
     }});
