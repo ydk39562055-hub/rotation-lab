@@ -1,8 +1,6 @@
 {
- "date": "2026-07-08",
+ "date": "2026-07-09",
  "go": [
-  "AMD",
-  "AVGO",
   "BAC",
   "C",
   "CRWD",
@@ -11,23 +9,24 @@
   "GEV",
   "GLW",
   "GS",
-  "INTC",
   "JPM",
-  "MRVL",
   "MS",
   "NET",
-  "NVDA",
   "NVT",
   "PANW",
   "S",
-  "TSM",
   "VRT",
   "ZS"
  ],
  "watch": [
-  "GPCR",
-  "LLY",
-  "NVO",
-  "VKTX"
+  "000660.KS",
+  "005930.KS",
+  "AMD",
+  "AVGO",
+  "INTC",
+  "MRVL",
+  "MU",
+  "NVDA",
+  "TSM"
  ]
 }
