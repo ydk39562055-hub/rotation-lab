@@ -1,21 +1,16 @@
 {
- "date": "2026-07-14",
+ "date": "2026-07-15",
  "go": [
   "BAC",
   "C",
   "CRWD",
-  "ETN",
   "FTNT",
-  "GEV",
-  "GLW",
   "GS",
   "JPM",
   "MS",
   "NET",
-  "NVT",
   "PANW",
   "S",
-  "VRT",
   "ZS"
  ],
  "watch": [
