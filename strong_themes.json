@@ -1,13 +1,8 @@
 {
- "date": "2026-07-16",
+ "date": "2026-07-17",
  "go": [
-  "BAC",
-  "C",
   "CRWD",
   "FTNT",
-  "GS",
-  "JPM",
-  "MS",
   "NET",
   "PANW",
   "S",
@@ -16,8 +11,13 @@
  "watch": [
   "AMD",
   "AVGO",
+  "BAC",
+  "C",
+  "GS",
   "INTC",
+  "JPM",
   "MRVL",
+  "MS",
   "NVDA",
   "TSM"
  ]
